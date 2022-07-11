@@ -30769,4 +30769,40 @@ div.tagsinput span.tag a {
   color: #ffffff;
 }
 
+/* letsrock */
+.main-panel .content-wrapper .letsrock .card-body .table-responsive button {
+  border-radius: 40px;
+  background: linear-gradient(173deg, rgba(255, 67, 171, 1) 0%, rgba(252, 149, 60, 1) 84%);
+  border: none;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .main-panel .content-wrapper .letsrock .card-body p {
+    font-size: 15.5px;
+  }
+
+  .main-panel .content-wrapper .letsrock .card-body .table-responsive button {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* here */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* here */
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* here */
+}
+
+@media (max-width: 575px) {
+  .main-panel .content-wrapper .letsrock .card-body p {
+    text-align: justify;
+  }
+}
+
 /*# sourceMappingURL=maps/style.css.map */
