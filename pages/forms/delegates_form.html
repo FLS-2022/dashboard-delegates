@@ -400,78 +400,89 @@
                       <div class="valid-feedback"> Looks good! </div>
                     </div>
                     <div class="form-group">
-                      <label>Submit CV, template download <a href="">disini</a></label>
-                      <input type="file" name="img[]" class="file-upload-default"
-                        pattern="([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx|.pdf)$" required>
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload CV (*PDF)">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
+                      <div class="form-row mb-3">
+                        <label>Submit CV, template download <a href="">disini</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload CV (*PDF)"
+                            pattern="([a-zA-Z0-9\s_\\.\-:])+(.pdf)$" required>
+
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*PDF)
+                          </div>
+                        </div>
                       </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
+                      <div class="form-row mb-3">
+                        <label>Submit Motlet, Template can download <a href="">here</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload Motlet (*Docx)"
+                            pattern="([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx)$" required>
+
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*Doc/Docx)
+                          </div>
+                        </div>
                       </div>
-                      <br>
-                      <label>Submit Motlet, Template can download <a href="">here</a></label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Motlet (*word)" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
+                      <div class="form-row mb-3">
+                        <label>Submit Study Case Room 1, Template can download <a href="">here</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload Case 1 (*Docx)"
+                            pattern="([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx)$" required>
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*Doc/Docx)
+                          </div>
+                        </div>
+
                       </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
+                      <div class="form-row mb-3">
+                        <label>Submit Study Case Room 2, Template can download <a href="">here</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload Case 2 (*Docx)"
+                            pattern="([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx)$" required>
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*Doc/Docx)
+                          </div>
+                        </div>
                       </div>
-                      <br>
-                      <label>Submit Study Case Room 1, Template can download <a href="">here</a></label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Study Case Room 1 (*word)" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
+                      <div class="form-row mb-3">
+                        <label>Submit KTM, Template can download <a href="">here</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload KTM (*PDF)"
+                            pattern="([a-zA-Z0-9\s_\\.\-:])+(.pdf)$" required>
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*PDF)
+                          </div>
+                        </div>
                       </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
+                      <div class="form-row mb-3">
+                        <label>Submit E-Sertifikat Template can download <a href="">here</a></label>
+                        <input type="file" name="img[]" class="file-upload-default" required>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info"
+                            placeholder="Upload E-Sertifikat (*PDF)" pattern="([a-zA-Z0-9\s_\\.\-:])+(.pdf)$" required>
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                          <div class="invalid-feedback">Fill with correct type (*PDF)
+                          </div>
+                        </div>
+
                       </div>
-                      <br>
-                      <label>Submit Study Case Room 2, Template can download <a href="">here</a></label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Study Case Room 2 (*word)" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
-                      </div>
-                      <br>
-                      <label>Submit KTM </label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload KTM (*PDF)" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
-                      </div>
-                      <br>
-                      <label>Submit E-Sertifikat </label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload E-Sertifikat (*PDF)" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                      <div class="invalid-feedback">Invalid type of file feedback
-                      </div>
+
                     </div>
 
                     <div class="form-group">
