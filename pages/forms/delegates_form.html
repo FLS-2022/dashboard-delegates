@@ -1,29 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
   <title>Dashboard Delegates</title>
-  <!-- plugins:css -->
+  <!-- Simple bar CSS -->
+  <link rel="stylesheet" href="css/simplebar.css">
+  <!-- Fonts CSS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- Icons CSS -->
+  <link rel="stylesheet" href="../../assets/additional/css/uppy.min.css">
+  <link rel="stylesheet" href="../../assets/additional/css/jquery.timepicker.css">
+  <!-- Date Range Picker CSS -->
+  <link rel="stylesheet" href="../../assets/additional/css/daterangepicker.css">
+  <link rel="stylesheet" href="https://res.cloudinary.com/kabupaten-sukoharjo/raw/upload/v1657587189/style_n6b4x3.css">
   <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
   <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
-  <!-- Layout styles -->
-  <link rel="stylesheet" href="https://res.cloudinary.com/kabupaten-sukoharjo/raw/upload/v1657587189/style_n6b4x3.css">
-  <!-- <link rel="stylesheet" href="../../assets/additional/css/modal.css"> -->
-  <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  <!-- App CSS -->
+
 </head>
 
-<body>
+<body class="vertical  dark  ">
   <div class="container-scroller">
     <!-- partial:../../partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -49,15 +55,15 @@
             <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
               aria-labelledby="profile-dropdown">
               <!-- <a href="#" class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-dark rounded-circle">
-                    <i class="mdi mdi-settings text-primary"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                </div>
-              </a> -->
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                    </div>
+                  </a> -->
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
@@ -105,11 +111,13 @@
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <!-- <li class="nav-item"> <a class="nav-link" href="pages/events/main-event.html">Form Registrations</a>
-              </li> -->
+                  </li> -->
               <li class="nav-item"> <a class="nav-link" href="../../pages/events/timeline.html">Timeline</a>
               </li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/events/main-event.html">Main Events</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/events/main-event.html">Main
+                  Events</a></li>
             </ul>
           </div>
         </li>
@@ -130,13 +138,13 @@
           </a>
         </li>
         <!-- <li class="nav-item menu-items">
-          <a class="nav-link" href="pages/charts/chartjs.html">
-            <span class="menu-icon">
-              <i class="mdi mdi-chart-bar"></i>
-            </span>
-            <span class="menu-title">Main Events</span>
-          </a>
-        </li> -->
+              <a class="nav-link" href="pages/charts/chartjs.html">
+                <span class="menu-icon">
+                  <i class="mdi mdi-chart-bar"></i>
+                </span>
+                <span class="menu-title">Main Events</span>
+              </a>
+            </li> -->
         <li class="nav-item menu-items">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="admin">
             <span class="menu-icon">
@@ -147,11 +155,12 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data Delegates
+              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data
+                  Delegates
                 </a>
               </li>
               <!-- <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
-              </li> -->
+                  </li> -->
             </ul>
           </div>
         </li>
@@ -165,8 +174,10 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/faq.html"> FAQs </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/contact.html"> Contact Support
+              <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/faq.html"> FAQs </a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/contact.html"> Contact
+                  Support
                 </a></li>
             </ul>
           </div>
@@ -205,7 +216,8 @@
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown d-none d-lg-block">
               <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" aria-expanded="false"
-                href="https://futureleadersummit.org/" target="_blank">Go To FLS 2022 Homepage</a>
+                href="https://futureleadersummit.org/" target="_blank">Go To FLS
+                2022 Homepage</a>
 
             </li>
             <li class="nav-item nav-settings d-none d-lg-block">
@@ -234,7 +246,8 @@
                   </div>
                   <div class="preview-item-content">
                     <p class="preview-subject mb-1">Announcements Delegates</p>
-                    <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS 2022 </p>
+                    <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
+                      2022 </p>
                   </div>
                 </a>
                 <div class="dropdown-divider"></div>
@@ -291,118 +304,76 @@
             </nav>
           </div>
           <div class="row">
-            <!-- <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Default form</h4>
-                    <p class="card-description"> Basic form layout </p>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputUsername1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
-                      </div>
-                      <div class="form-check form-check-flat form-check-primary">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input"> Remember me </label>
-                      </div>
-                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <button class="btn btn-dark">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Horizontal Form</h4>
-                    <p class="card-description"> Horizontal form layout </p>
-                    <form class="forms-sample">
-                      <div class="form-group row">
-                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-9">
-                          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
-                        <div class="col-sm-9">
-                          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
-                        <div class="col-sm-9">
-                          <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
-                        </div>
-                      </div>
-                      <div class="form-check form-check-flat form-check-primary">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input"> Remember me </label>
-                      </div>
-                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <button class="btn btn-dark">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div> -->
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Form Registrasi Delegates</h4>
                   <p class="card-description"> Hello Future Leaders! <br>
                     Please complete your data with real information.</p>
-                  <p class="card-description"> Before you fill out the form below, make sure you have read and
+                  <p class="card-description"> Before you fill out the form below, make sure you have
+                    read and
                     understood the contents of the booklet! <br>
                     Download the delegates booklet <a href="">here*</a></p>
-                  <form class="forms-sample">
+
+                  <form class="forms-sample needs-validation" novalidate>
                     <div class="form-group">
                       <label for="exampleInputName1">Nama</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama">
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama"
+                        pattern="^[a-zA-Z\s\.\-]*$" minlength="4" maxlength="50" required>
+                      <div class="valid-feedback"> Looks good! </div>
+                      <div class="invalid-feedback"> Usernama not valid. </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-8 mb-3">
+                        <label for="validationCustom03">Place of Birth</label>
+                        <input type="text" class="form-control" id="validationCustom03" placeholder="Solo"
+                          pattern="^[a-zA-Z\s]*$" minlength="4" required>
+                        <div class="valid-feedback"> Looks good! </div>
+                        <div class="invalid-feedback"> Please provide a valid city. </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="date-input1">Date of Birth</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control drgpicker" id="date-input1" value="02/09/1999"
+                            aria-describedby="button-addon2">
+
+                          <div class="input-group-append">
+                            <div class="input-group-text" id="button-addon-date" style="border-color:#3A155E ;"><span
+                                class="mdi mdi-calendar fe-16 mx-2" style="color:white ;"></span></div>
+                          </div>
+                          <div class="valid-feedback"> Looks good! </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="form-group ">
+                      <label for="address-wpalaceholder">Domicile</label>
+                      <input type="text" id="address-wpalaceholder" class="form-control"
+                        placeholder="Enter your address" pattern="^[a-zA-Z\s\.\-]*$" minlength="4" required>
+                      <div class="valid-feedback"> Looks good! </div>
+                      <div class="invalid-feedback"> Badd address </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputTTL1">TTL</label>
-                      <input class="form-control" id="exampleInputTTL1" placeholder="dd/mm/yyyy">
+                      <label for="exampleInputName1">University</label>
+                      <input type="text" class="form-control" id="simpleinput" placeholder="ex : Universitas Diponegoro"
+                        pattern="^[a-zA-Z\s]*$" minlength="4" required>
+                      <div class="valid-feedback"> Looks good! </div>
+                      <div class="invalid-feedback"> Please fill this form. </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputName1">Domisili</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="ex : Semarang">
+                      <label for="exampleInputName1">Major</label>
+                      <input type="text" class="form-control" id="simpleinput" placeholder="ex : Teknik Kimia"
+                        pattern="^[a-zA-Z\s]*$" minlength="4" required>
+                      <div class="valid-feedback"> Looks good! </div>
+                      <div class="invalid-feedback"> Not a correct major. </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputName1">Asal Universitas</label>
-                      <input type="text" class="form-control" id="exampleInputName1"
-                        placeholder="ex : Universitas Diponegoro">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Jurusan</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="ex : Teknik Kimia">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Angkatan</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="ex : 2019">
+                      <label for="exampleInputName1">Bacth</label>
+                      <input type="text" class="form-control" id="simpleinput" placeholder="ex : 2019" pattern="^\d+$"
+                        minlength="4" maxlength="4" required>
+                      <div class="valid-feedback"> Looks good! </div>
+                      <div class="invalid-feedback"> Please fill correct value number </div>
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Pilihan Room 1</label>
@@ -414,6 +385,7 @@
                         <option>Health Architecture</option>
                         <option>Urban and Regional Planning</option>
                       </select>
+                      <div class="valid-feedback"> Looks good! </div>
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Pilihan Room 2</label>
@@ -425,21 +397,12 @@
                         <option>Health Architecture</option>
                         <option>Urban and Regional Planning</option>
                       </select>
+                      <div class="valid-feedback"> Looks good! </div>
                     </div>
-
-                    <!-- <div class="form-group">
-                      <label for="exampleInputEmail3">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail3"
-                        placeholder="ex : johan@gmail.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                    </div> -->
-
                     <div class="form-group">
                       <label>Submit CV, template download <a href="">disini</a></label>
-                      <input type="file" name="img[]" class="file-upload-default">
+                      <input type="file" name="img[]" class="file-upload-default"
+                        pattern="([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx|.pdf)$" required>
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
                           placeholder="Upload CV (*PDF)">
@@ -447,66 +410,82 @@
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label>Submit Motlet, template download <a href="">disini</a></label>
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
+                      <br>
+                      <label>Submit Motlet, Template can download <a href="">here</a></label>
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Motlet (*word)">
+                          placeholder="Upload Motlet (*word)" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Submit Study Case Room 1, template download <a href="">disini</a></label>
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
+                      <br>
+                      <label>Submit Study Case Room 1, Template can download <a href="">here</a></label>
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Study Case Room 1 (*word)">
+                          placeholder="Upload Study Case Room 1 (*word)" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Submit Study Case Room 2, template download <a href="">disini</a></label>
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
+                      <br>
+                      <label>Submit Study Case Room 2, Template can download <a href="">here</a></label>
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload Study Case Room 2 (*word)">
+                          placeholder="Upload Study Case Room 2 (*word)" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
-                    <div class="form-group">
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
+                      <br>
                       <label>Submit KTM </label>
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload KTM (*PDF)">
+                          placeholder="Upload KTM (*PDF)" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
-                    <div class="form-group">
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
+                      <br>
                       <label>Submit E-Sertifikat </label>
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled
-                          placeholder="Upload E-Sertifikat (*PDF)">
+                          placeholder="Upload E-Sertifikat (*PDF)" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
+                      <div class="invalid-feedback">Invalid type of file feedback
+                      </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-dark">Cancel</button>
+
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck"> Agree to terms
+                          and conditions </label>
+                        <div class="invalid-feedback"> You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit form</button>
                   </form>
+
                 </div>
               </div>
             </div>
@@ -516,7 +495,8 @@
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©futureleadersummit
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright
+              ©futureleadersummit
               2022</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <a
                 href="https://instagram.com/flsummit" target="_blank">Future
@@ -529,14 +509,9 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
   <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
   <script src="../../assets/vendors/select2/select2.min.js"></script>
   <script src="../../assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-  <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="../../assets/js/off-canvas.js"></script>
   <script src="../../assets/js/hoverable-collapse.js"></script>
@@ -548,8 +523,175 @@
   <script src="../../assets/js/file-upload.js"></script>
   <script src="../../assets/js/typeahead.js"></script>
   <script src="../../assets/js/select2.js"></script>
-  <!-- <script src="../../assets/additional/js/bootstrap.min.js"></script> -->
-  <!-- End custom js for this page -->
+
+
+  <script src="../../assets/additional/js/jquery.min.js"></script>
+  <script src="../../assets/additional/js/popper.min.js"></script>
+  <script src="../../assets/additional/js/moment.min.js"></script>
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <script src='../../assets/additional/js/daterangepicker.js'></script>
+  <script src='../../assets/additional/js/jquery.mask.min.js'></script>
+  <script src='../../assets/additional/js/select2.min.js'></script>
+  <script src='../../assets/additional/js/jquery.validate.min.js'></script>
+  <script src='../../assets/additional/js/jquery.timepicker.js'></script>
+  <!-- 
+    <script src='js/uppy.min.js'></script> -->
+
+  <script>
+    $('.select2').select2({
+      theme: 'bootstrap4',
+    });
+    $('.select2-multi').select2({
+      multiple: true,
+      theme: 'bootstrap4',
+    });
+    $('.drgpicker').daterangepicker({
+      singleDatePicker: true,
+      timePicker: false,
+      showDropdowns: true,
+      locale: {
+        format: 'MM/DD/YYYY'
+      }
+    });
+    $('.time-input').timepicker({
+      'scrollDefault': 'now',
+      'zindex': '9999' /* fix modal open */
+    });
+    /** date range picker */
+    if ($('.datetimes').length) {
+      $('.datetimes').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+      });
+    }
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+    $('#reportrange').daterangepicker({
+      startDate: start,
+      endDate: end,
+      ranges: {
+        'Today': [moment(), moment()],
+        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+          .endOf('month')
+        ]
+      }
+    }, cb);
+    cb(start, end);
+    $('.input-placeholder').mask("00/00/0000", {
+      placeholder: "__/__/____"
+    });
+    $('.input-zip').mask('00000-000', {
+      placeholder: "____-___"
+    });
+    $('.input-money').mask("#.##0,00", {
+      reverse: true
+    });
+    $('.input-phoneus').mask('(000) 000-0000');
+    $('.input-mixed').mask('AAA 000-S0S');
+    $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+      translation: {
+        'Z': {
+          pattern: /[0-9]/,
+          optional: true
+        }
+      },
+      placeholder: "___.___.___.___"
+    });
+    // editor
+    var editor = document.getElementById('editor');
+    if (editor) {
+      var toolbarOptions = [
+        [{
+          'font': []
+        }],
+        [{
+          'header': [1, 2, 3, 4, 5, 6, false]
+        }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{
+            'header': 1
+          },
+          {
+            'header': 2
+          }
+        ],
+        [{
+            'list': 'ordered'
+          },
+          {
+            'list': 'bullet'
+          }
+        ],
+        [{
+            'script': 'sub'
+          },
+          {
+            'script': 'super'
+          }
+        ],
+        [{
+            'indent': '-1'
+          },
+          {
+            'indent': '+1'
+          }
+        ], // outdent/indent
+        [{
+          'direction': 'rtl'
+        }], // text direction
+        [{
+            'color': []
+          },
+          {
+            'background': []
+          }
+        ], // dropdown with defaults from theme
+        [{
+          'align': []
+        }],
+        ['clean'] // remove formatting button
+      ];
+      var quill = new Quill(editor, {
+        modules: {
+          toolbar: toolbarOptions
+        },
+        theme: 'snow'
+      });
+    }
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
+
 </body>
 
 </html>
