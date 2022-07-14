@@ -7,9 +7,45 @@ body {
 .tab-content .grand-opening ul li {
   list-style-type: none;
   line-height: 2.5rem;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
 }
+
+.tab-content .day-2 li {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+
+  /* here */
+  .tab-content .grand-opening h6,
+  .tab-content .day-2 h6 {
+    margin-left: -8px;
+  }
+
+  .tab-content .grand-opening .form-group p {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* here */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* here */
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* here */
+}
+
+@media (max-width: 575px) {
+
+  /* here */
+}
+
 .box {
   margin: 1rem;
   height: 80px;
@@ -21,24 +57,31 @@ body {
   justify-content: center;
   cursor: pointer;
 }
+
 .box1 {
   background-color: #c5192d;
 }
+
 .box2 {
   background-color: #fd6925;
 }
+
 .box3 {
   background-color: #9c2951;
 }
+
 .box4 {
   background-color: #3f7e44;
 }
+
 .box5 {
   background-color: #4c9f38;
 }
+
 .box6 {
   background-color: #fd9d24;
 }
+
 .submit-room {
   border-radius: 1rem;
 }
