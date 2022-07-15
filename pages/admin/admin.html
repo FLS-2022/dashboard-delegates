@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="../../assets/additional/css/dataTables.bootstrap4.css">
     <style>
         .main-panel .content-wrapper .card .card-body .table-responsive .aprovee {
-            padding-left: 142px !important;
-            padding-right: 120px !important;
+            padding-left: 125px !important;
+            padding-right: 125px !important;
         }
     </style>
 </head>
@@ -344,6 +344,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th> Nama </th>
+                                                    <th> Username </th>
                                                     <th> Alamat </th>
                                                     <th> TTL </th>
                                                     <th> Domisili </th>
@@ -363,9 +364,118 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <!-- Modal Upload-->
+                                                <div class="modal fade" id="verticalModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="verticalModalTitle">
+                                                                    Upload Report Delegates</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div id="drag-drop-area"></div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <p>Pastikan document yang diupload sudah benar</p>
+                                                                <button type="button" class="btn mb-2 btn-secondary"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                                <button type="button"
+                                                                    class="btn mb-2 btn-primary">Upload</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal Approve-->
+                                                <div class="modal fade" id="approveModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="verticalModalTitle">
+                                                                    Approve Delegates</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5>Apakah Anda yakin akan me-Apporove delegates
+                                                                    ini?</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                                <button type="button" class="btn mb-2 btn-secondary"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                                <button type="button"
+                                                                    class="btn mb-2 btn-success">Approve</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal Reject-->
+                                                <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="verticalModalTitle">
+                                                                    Reject Delegates</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5>Apakah Anda yakin akan meReject delegates
+                                                                    ini?</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                                <button type="button" class="btn mb-2 btn-secondary"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                                <button type="button"
+                                                                    class="btn mb-2 btn-danger">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal Waiting List-->
+                                                <div class="modal fade" id="WLModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="verticalModalTitle">
+                                                                    Waiting List Delegates</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5>Apakah Anda yakin akan memberikan Waiting List untuk
+                                                                    delegates
+                                                                    ini?</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                                <button type="button" class="btn mb-2 btn-secondary"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                                <button type="button" class="btn mb-2 btn-info">Waiting
+                                                                    List</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <tr>
                                                     <td>368</td>
                                                     <td>Imani Lara</td>
+                                                    <td>User01</td>
                                                     <td>(478) 446-9234</td>
                                                     <td>Asset Management</td>
                                                     <td>Borland</td>
@@ -392,16 +502,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -410,40 +524,11 @@
                                                                 class="mdi mdi-upload btn-icon-prepend"></i> Upload
                                                         </button>
                                                     </td>
-
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="verticalModal" tabindex="-1"
-                                                        role="dialog" aria-labelledby="verticalModalTitle"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="verticalModalTitle">
-                                                                        Upload Report Delegates</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div id="drag-drop-area"></div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <p>Pastikan document yang diupload sudah benar</p>
-                                                                    <!-- <button type="button" class="btn mb-2 btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <button type="button"
-                                                                        class="btn mb-2 btn-primary">Save
-                                                                        changes</button> -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </tr>
                                                 <tr>
                                                     <td>323</td>
                                                     <td>Walter Sawyer</td>
+                                                    <td>User01</td>
                                                     <td>(671) 969-1704</td>
                                                     <td>Tech Support</td>
                                                     <td>Macromedia</td>
@@ -470,16 +555,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -493,6 +582,7 @@
                                                 <tr>
                                                     <td>371</td>
                                                     <td>Noelle Ray</td>
+                                                    <td>User01</td>
                                                     <td>(803) 792-2559</td>
                                                     <td>Human Resources</td>
                                                     <td>Sibelius</td>
@@ -519,16 +609,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -541,6 +635,7 @@
                                                 <tr>
                                                     <td>302</td>
                                                     <td>Portia Nolan</td>
+                                                    <td>User01</td>
                                                     <td>(216) 946-1119</td>
                                                     <td>Payroll</td>
                                                     <td>Microsoft</td>
@@ -567,16 +662,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -589,6 +688,7 @@
                                                 <tr>
                                                     <td>443</td>
                                                     <td>Scarlett Anderson</td>
+                                                    <td>User01</td>
                                                     <td>(486) 309-3564</td>
                                                     <td>Tech Support</td>
                                                     <td>Yahoo</td>
@@ -615,16 +715,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -637,6 +741,7 @@
                                                 <tr>
                                                     <td>345</td>
                                                     <td>Kevyn Mills</td>
+                                                    <td>User01</td>
                                                     <td>(976) 873-4833</td>
                                                     <td>Tech Support</td>
                                                     <td>Sibelius</td>
@@ -663,16 +768,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -685,6 +794,7 @@
                                                 <tr>
                                                     <td>356</td>
                                                     <td>Sharon Buckley</td>
+                                                    <td>User01</td>
                                                     <td>(429) 517-6784</td>
                                                     <td>Tech Support</td>
                                                     <td>Sibelius</td>
@@ -711,16 +821,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -733,6 +847,7 @@
                                                 <tr>
                                                     <td>263</td>
                                                     <td>Fletcher Everett</td>
+                                                    <td>User01</td>
                                                     <td>(735) 632-1255</td>
                                                     <td>Customer Service</td>
                                                     <td>Borland</td>
@@ -759,16 +874,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -781,6 +900,7 @@
                                                 <tr>
                                                     <td>227</td>
                                                     <td>Bertha Ball</td>
+                                                    <td>User01</td>
                                                     <td>(656) 680-1553</td>
                                                     <td>Sales and Marketing</td>
                                                     <td>Finale</td>
@@ -807,16 +927,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -829,6 +953,7 @@
                                                 <tr>
                                                     <td>396</td>
                                                     <td>Phoebe Cobb</td>
+                                                    <td>User01</td>
                                                     <td>(663) 233-0340</td>
                                                     <td>Human Resources</td>
                                                     <td>Adobe</td>
@@ -855,16 +980,20 @@
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
-                                                                    class="btn btn-success btn-md butt">Approve</button>
+                                                                    class="btn btn-success btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#approveModal">Approve</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 4px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-danger btn-md butt">Reject</button>
+                                                                <button type="button" class="btn btn-danger btn-md butt"
+                                                                    data-toggle="modal"
+                                                                    data-target="#rejectModal">Reject</button>
                                                             </div>
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button"
-                                                                    class="btn btn-info btn-md">Waiting List</button>
+                                                                <button type="button" class="btn btn-info btn-md"
+                                                                    data-toggle="modal" data-target="#WLModal">Waiting
+                                                                    List</button>
                                                             </div>
                                                         </div>
                                                     </td>
