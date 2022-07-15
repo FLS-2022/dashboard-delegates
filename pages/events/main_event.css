@@ -19,13 +19,17 @@ body {
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
 
   /* here */
-  .tab-content .grand-opening h6,
-  .tab-content .day-2 h6 {
-    margin-left: -8px;
+
+
+
+
+  .tab-content form label {
+    /* margin-top: 20px; */
+    margin-left: 18px;
   }
 
-  .tab-content .grand-opening .form-group p {
-    margin-left: 10px;
+  .tab-content .day-3 form label {
+    margin-top: 20px;
   }
 }
 

@@ -549,18 +549,30 @@
                             Take your note and mark important point in
                             discucssion room.
                           </h6>
-                          <div class="upload-presence mt-5">
-                            <p>
-                              Presence <a href="">Here*</a> <br />
-                              Capture Your Moment in Grand Opening
-                            </p>
-                            <form class="img-upload d-flex">
-                              <input class="form-control w-50 rounded-pill" type="text" placeholder="Upload Image" />
-                              <button class="btn btn-primary rounded-pill ml-2">
-                                Upload
-                              </button>
-                            </form>
-                          </div>
+                          <form id="form-3" class="upload-presence row row-cols-1 ms-5 me-5 needs-validation"
+                            novalidate>
+                            <div class="form-group">
+                              <div class="form-row mb-3">
+                                <label>
+
+                                  Presence <a href="">Here*</a> <br />
+                                  Capture Your Moment in Grand Opening
+
+                                </label>
+                                <input type="file" name="img[]" class="file-upload-default" required>
+                                <div class="input-group col-xs-12">
+                                  <input type="text" class="form-control file-upload-info" placeholder="Upload Images"
+                                    pattern="([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$" required>
+
+                                  <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                  </span>
+                                  <div class="invalid-feedback">Fill with correct type (*jpg/jpeg/png)
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                       <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
@@ -590,12 +602,31 @@
                           <div class="submit-room border border-white w-75 mx-auto mt-5 px-5 py-4 text-center">
                             <div class="container">
                               <h6>Submit your moment in education room</h6>
-                              <form class="img-upload d-flex mt-3 justify-content-center">
+                              <form id="form-4" class="upload-presence row row-cols-1 ms-5 me-5 needs-validation"
+                                novalidate>
+                                <div class="form-group">
+                                  <div class="form-row mb-3">
+                                    <input type="file" name="img[]" class="file-upload-default" required>
+                                    <div class="input-group col-xs-12">
+                                      <input type="text" class="form-control file-upload-info"
+                                        placeholder="Upload Images" pattern="([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$"
+                                        required>
+
+                                      <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                      </span>
+                                      <div class="invalid-feedback">Fill with correct type (*jpg/jpeg/png)
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                              <!-- <form class="img-upload d-flex mt-3 justify-content-center">
                                 <input class="form-control w-50 rounded-pill" type="text" placeholder="Upload Image" />
                                 <button class="btn btn-primary rounded-pill ml-2">
                                   Upload
                                 </button>
-                              </form>
+                              </form> -->
                             </div>
                           </div>
                         </div>
