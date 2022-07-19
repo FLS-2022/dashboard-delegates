@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="../../assets/additional/css/dataTables.bootstrap4.css">
     <style>
         .main-panel .content-wrapper .card .card-body .table-responsive .aprovee {
-            padding-left: 105px !important;
-            padding-right: 105px !important;
+            padding-left: 45px !important;
+            padding-right: 45px !important;
         }
     </style>
 </head>
@@ -173,7 +173,7 @@
                             <li class="nav-item"> <a class="nav-link" href="./payment_validate.html"> Validate Payment
                                 </a>
                             </li>
-                            <li class="nav-item"> <a class="nav-link" href=" ./approved.html"> Data Approved
+                            <li class="nav-item"> <a class="nav-link" href="./approved.html"> Data Approved
                                 </a>
                             </li>
                             <!-- <li class="nav-item"> <a class="nav-link" href="./mdi.html"> Validation </a>
@@ -326,7 +326,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Delegates</h4>
-                                    <p class="card-description"> Berisi data registrasi,approve/reject, dan upload
+                                    <p class="card-description"> Berisi data seluruh delagates yang lolos dan upload
                                         report delegates
                                         <code>PAGE ADMIN</code>
                                     </p>
@@ -351,10 +351,23 @@
                                         <table class="table table-striped datatables" id="dataTable-1">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th> Nama </th>
-                                                    <th> Username </th>
-                                                    <th class="text-center"> Report</th>
+                                                    <th class="text-center">#</th>
+                                                    <th class="text-center"> Nama </th>
+                                                    <th class="text-center"> Username </th>
+                                                    <th class="text-center"> Alamat </th>
+                                                    <th class="text-center"> TTL </th>
+                                                    <th class="text-center"> Domisili </th>
+                                                    <th class="text-center"> Asal Universitas </th>
+                                                    <th class="text-center"> Jurusan </th>
+                                                    <th class="text-center"> Angkatan</th>
+                                                    <th class="text-center"> Room Terpilih</th>
+                                                    <th class="text-center"> CV</th>
+                                                    <th class="text-center"> Motlet</th>
+                                                    <th class="text-center"> Study Case 1</th>
+                                                    <th class="text-center"> Study Case 2</th>
+                                                    <th class="text-center"> KTM</th>
+                                                    <th class="text-center"> E-Sertifikat</th>
+                                                    <th class="text-center aprovee">Report Delegates</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -470,24 +483,68 @@
                                                     <td>368</td>
                                                     <td>Imani Lara</td>
                                                     <td>User01</td>
-                                                    <td> <button type="button" class="btn btn-warning btn-icon-text"
-                                                            data-toggle="modal" data-target="#verticalModal"><i
-                                                                class="mdi mdi-upload btn-icon-prepend"></i> Upload
-                                                        </button>
+                                                    <td>022 Suspendisse Rd. 022 Suspendisse Rd.</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Ap #708-5152 Cursus. Ave</td>
+                                                    <td>Bath</td>
+                                                    <td>High Wycombe</td>
+                                                    <td>Jun 8, 2019</td>
+                                                    <td>Urban and Regional Planning</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
+                                                    </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row text-center justify-content-center">
+                                                            <button type="button" class="btn btn-warning btn-icon-text"
+                                                                data-toggle="modal" data-target="#verticalModal"><i
+                                                                    class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>323</td>
                                                     <td>Walter Sawyer</td>
                                                     <td>User01</td>
-                                                    <td> <button type="button" class="btn btn-warning btn-icon-text"
-                                                            data-toggle="modal" data-target="#verticalModal"><i
-                                                                class="mdi mdi-upload btn-icon-prepend"></i> Upload
-                                                        </button>
+                                                    <td>022 Suspendisse Rd. 022 Suspendisse Rd.</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Ap #708-5152 Cursus. Ave</td>
+                                                    <td>Bath</td>
+                                                    <td>High Wycombe</td>
+                                                    <td>Jun 8, 2019</td>
+                                                    <td>Urban and Regional Planning</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row text-center justify-content-center">
+                                                            <button type="button" class="btn btn-warning btn-icon-text"
+                                                                data-toggle="modal" data-target="#verticalModal"><i
+                                                                    class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                            </button>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-
                                             </tbody>
                                         </table>
                                     </div>

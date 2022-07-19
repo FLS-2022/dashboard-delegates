@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="../../assets/additional/css/dataTables.bootstrap4.css">
     <style>
         .main-panel .content-wrapper .card .card-body .table-responsive .aprovee {
-            padding-left: 105px !important;
-            padding-right: 105px !important;
+            padding-left: 135px !important;
+            padding-right: 135px !important;
         }
     </style>
 </head>
@@ -325,9 +325,11 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Data Delegates</h4>
-                                    <p class="card-description"> Berisi data registrasi,approve/reject, dan upload
-                                        report delegates
+                                    <h4 class="card-title">Payment Validation</h4>
+                                    <p class="card-description"> Berisi data bukti pembayaran dan validasi pembayaran
+                                        delegates
+                                        yang berstatus
+                                        approved
                                         <code>PAGE ADMIN</code>
                                     </p>
                                     <div class="row mb-4">
@@ -351,11 +353,13 @@
                                         <table class="table table-striped datatables" id="dataTable-1">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th> Nama </th>
-                                                    <th> Username </th>
-                                                    <th> Pembayaran </th>
-                                                    <th> Bukti Pembayaran </th>
+                                                    <th class="text-center">#</th>
+                                                    <th class="text-center"> Nama </th>
+                                                    <th class="text-center"> Username </th>
+                                                    <th class="text-center"> Asal Universitas </th>
+                                                    <th class="text-center"> Room Terpilih</th>
+                                                    <th class="text-center"> Pembayaran </th>
+                                                    <th class="text-center"> Bukti Pembayaran </th>
                                                     <th class="text-center aprovee"> Approval</th>
                                                 </tr>
                                             </thead>
@@ -472,11 +476,13 @@
                                                     <td>368</td>
                                                     <td>Imani Lara</td>
                                                     <td>User01</td>
+                                                    <td>Universitas Diponegoro</td>
+                                                    <td>Urban and Regional Planning</td>
                                                     <td>GoPay</td>
                                                     <td> <button type="button" class="btn btn-primary btn-md">Bukti
                                                             Pembayaran</button></td>
                                                     <td>
-                                                        <div class="row text-center">
+                                                        <div class="row text-center justify-content-center">
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"
@@ -503,11 +509,13 @@
                                                     <td>323</td>
                                                     <td>Walter Sawyer</td>
                                                     <td>User01</td>
+                                                    <td>Universitas Diponegoro</td>
+                                                    <td>Economics</td>
                                                     <td>DANA</td>
                                                     <td> <button type="button" class="btn btn-primary btn-md">Bukti
                                                             Pembayaran</button></td>
                                                     <td>
-                                                        <div class="row text-center">
+                                                        <div class="row text-center justify-content-center">
                                                             <div class="col-xl-3 col-lg-3 col-md-3 col-3"
                                                                 style="margin-right: 18px ;">
                                                                 <button type="button"

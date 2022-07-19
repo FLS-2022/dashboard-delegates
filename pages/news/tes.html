@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Dashboard Delegates</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="css/simplebar.css">
+    <!-- Fonts CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="../../assets/additional/css/uppy.min.css">
+    <link rel="stylesheet" href="../../assets/additional/css/jquery.timepicker.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="../../assets/additional/css/daterangepicker.css">
+    <link rel="stylesheet"
+        href="https://res.cloudinary.com/kabupaten-sukoharjo/raw/upload/v1657587189/style_n6b4x3.css">
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- App CSS -->
+
+</head>
+
+<body class="vertical  dark  ">
+    <div class="container-scroller">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="index.html"><img src="../../assets/images/logox.png"
+                        alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logox_mini.png"
+                        alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item profile">
+                    <div class="profile-desc">
+                        <div class="profile-pic">
+                            <div class="count-indicator">
+                                <img class="img-xs rounded-circle " src="../../assets/images/faces/face12.jpg" alt="">
+                                <span class="count bg-success"></span>
+                            </div>
+                            <div class="profile-name">
+                                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                                <span>Delegates</span>
+                            </div>
+                        </div>
+                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
+                                class="mdi mdi-dots-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+                            aria-labelledby="profile-dropdown">
+                            <!-- <a href="#" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                    </div>
+                  </a> -->
+                            <div class="dropdown-divider"></div>
+                            <a href="../../resetpassword.html" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-onepassword  text-info"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../../index.html#ToDoList_" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-calendar-today text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../index.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-laptop"></i>
+                        </span>
+                        <span class="menu-title">Events</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <!-- <li class="nav-item"> <a class="nav-link" href="pages/events/main-event.html">Form Registrations</a>
+                  </li> -->
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="../../pages/events/timeline.html">Timeline</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="../../pages/events/main-event.html">Delegates Journey</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../pages/forms/delegates_form.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-playlist-play"></i>
+                        </span>
+                        <span class="menu-title">Form Registrations</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../pages/news/announcement.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Announcements</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item menu-items">
+              <a class="nav-link" href="pages/charts/chartjs.html">
+                <span class="menu-icon">
+                  <i class="mdi mdi-chart-bar"></i>
+                </span>
+                <span class="menu-title">Delegates Journey</span>
+              </a>
+            </li> -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false"
+                        aria-controls="admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account-key"></i>
+                        </span>
+                        <span class="menu-title">Admin</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="admin">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data
+                                    Delegates
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
+                  </li> -->
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-security"></i>
+                        </span>
+                        <span class="menu-title">Help Desk</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="auth">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/faq.html"> FAQs </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/contact.html"> Contact
+                                    Support
+                                </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                        target="_blank">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-file-document-box"></i>
+                        </span>
+                        <span class="menu-title">Booklet Delegates</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
+                            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="Welcome to Delegates Dashboard">
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
+                                aria-expanded="false" href="https://futureleadersummit.org/" target="_blank">Go To FLS
+                                2022 Homepage</a>
+
+                        </li>
+                        <li class="nav-item nav-settings d-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <i class="mdi mdi-view-grid"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown border-left">
+
+                        </li>
+                        <li class="nav-item dropdown border-left">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                                data-toggle="dropdown">
+                                <i class="mdi mdi-bell"></i>
+                                <span class="count bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="notificationDropdown">
+                                <h6 class="p-3 mb-0">Notifications</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item" href="../../pages/news/announcement.html">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-calendar text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Announcements Delegates</p>
+                                        <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
+                                            2022 </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+
+                                <div class="dropdown-divider"></div>
+
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">See all notifications</p>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face12.jpg"
+                                        alt="">
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Ryan Redo</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="profileDropdown">
+                                <h6 class="p-3 mb-0">Profile</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Log out</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">Advanced settings</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> Form Registrasi </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Form registrasi</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body border border-white rounded">
+                                    <h4 class="card-title">Congratulations,</h4>
+                                    <p class="card-description"> Hello Future Leaders! <br>
+                                        you have
+                                        passed from selection Future Leader Summit 2022 as a
+                                        Delegates <span class="fw-bold">Room Economy.</span> <br> <br>
+                                        Now you can creating impact for Human Resource
+                                        Construction Indonesia through education program future
+                                        leader summit 2022.
+                                        Ensure you have read and understood the study case and
+                                        completing payment through link bellow.</p>
+                                    <p class="card-description"> Before you fill out the form below, make sure you have
+                                        read and
+                                        understood the contents of the booklet! <br>
+                                        <a href="">Link Study Guide*</a>
+                                        <br>
+                                        <a href="">Link cara pembayaran</a></p>
+                                    <form class="forms-sample needs-validation" novalidate>
+                                        <!-- <div class="form-group">
+                                            <label for="exampleInputName1">Nama</label>
+                                            <input type="text" class="form-control" id="exampleInputName1"
+                                                placeholder="Nama" pattern="^[a-zA-Z\s\.\-]*$" minlength="4"
+                                                maxlength="50" required>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Usernama not valid. </div>
+                                        </div> -->
+
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Pilihan Pembayaran</label>
+                                            <select class="form-control" id="exampleSelectGender">
+                                                <option>GoPay</option>
+                                                <option>OVO</option>
+                                                <option>DANA</option>
+                                                <option>BCA Virtual Account</option>
+                                                <option>BNI Virtual Account</option>
+                                                <option>BRI Virtual Account</option>
+                                            </select>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-row mb-3">
+                                                <label>Submit Bukti Pembayaran </label>
+                                                <input type="file" name="img[]" class="file-upload-default" required>
+                                                <div class="input-group col-xs-12">
+                                                    <input type="text" class="form-control file-upload-info"
+                                                        placeholder="Upload CV (*PDF)"
+                                                        pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.pdf|.jpg|.jpeg|.png|.doc|.docx)$"
+                                                        required>
+                                                    <span class="input-group-append">
+                                                        <button class="file-upload-browse btn btn-primary"
+                                                            type="button">Upload</button>
+                                                    </span>
+                                                    <div class="invalid-feedback">Fill with correct type
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck"> Saya pastikan
+                                                    dokumen yang dikirim sudah benar </label>
+                                                <div class="invalid-feedback"> You must agree before submitting.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Submit
+                                            form</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 grid-margin stretch-card ">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p>
+                                        Thank you for contributing to the development of human resources in Indonesia
+                                        through the 2022
+                                        Future Leaders Summit educational program.
+                                        <br />
+                                        <br />
+                                        <span class="fw-bold" style="font-weight:800;color: #ffdc4a;">Please checking
+                                            our official instagram
+                                            and your email
+                                            on 27-28
+                                            agustus 2022
+                                            for future information!</span>
+                                        <br />
+                                        <br />
+                                        Hopefully you can creating impact through Future
+                                        Leader Summit 2022
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body border border-white rounded">
+                                    <p>
+                                        After we checking your document in delegates recruitment
+                                        process, your value is not yet aligned with the Future
+                                        Leader Summit 2022. Therefore, we highly recommend that
+                                        you take part in self-development activities that match
+                                        your value.
+                                        <br />
+                                        <br />
+                                        Thank you for your participation in Future Leader Summit
+                                        2022 recruitment process. Keep to spread positif impact
+                                        and stay stunning wherever you are!
+                                        <br />
+                                        <br />
+                                        <span class="fw-bold">Have a Great Day Future Leader!</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body border border-white rounded">
+                                    <p>
+                                        <span class="fw-bold">Hallo, Future Leader! </span>
+                                        <br>
+                                        Currently, you are on the waiting list for the
+                                        2022 Future Leaders Summit.
+                                        <br />
+                                        <br />
+                                        <br />
+                                        If there are delegates who have been accepted and experience resignation, we
+                                        will contact the
+                                        waiting list-ers according to the ranking based on the assessment that has been
+                                        done.
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <span class="fw-bold">Thank you for your willingness and good luck!</span>
+                                        <!-- 
+                                <br />
+                                <br />
+            
+                                <a href="">Link Study Guide*</a>
+                                <br />
+                                <a href="">Link pembayaran</a> -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright
+                            ©futureleadersummit
+                            2022</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <a
+                                href="https://instagram.com/flsummit" target="_blank">Future
+                                Leader Summit</a> </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/vendors/select2/select2.min.js"></script>
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/file-upload.js"></script>
+    <script src="../../assets/js/select2.js"></script>
+
+
+    <script src="../../assets/additional/js/jquery.min.js"></script>
+    <script src="../../assets/additional/js/popper.min.js"></script>
+    <script src="../../assets/additional/js/moment.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src='../../assets/additional/js/daterangepicker.js'></script>
+    <script src='../../assets/additional/js/jquery.mask.min.js'></script>
+    <script src='../../assets/additional/js/select2.min.js'></script>
+    <script src='../../assets/additional/js/jquery.validate.min.js'></script>
+    <script src='../../assets/additional/js/jquery.timepicker.js'></script>
+
+    <!-- 
+    <script src='js/uppy.min.js'></script> -->
+
+    <script>
+        $('.select2').select2({
+            theme: 'bootstrap4',
+        });
+        $('.select2-multi').select2({
+            multiple: true,
+            theme: 'bootstrap4',
+        });
+        $('.drgpicker').daterangepicker({
+            singleDatePicker: true,
+            timePicker: false,
+            showDropdowns: true,
+            locale: {
+                format: 'MM/DD/YYYY'
+            }
+        });
+        $('.time-input').timepicker({
+            'scrollDefault': 'now',
+            'zindex': '9999' /* fix modal open */
+        });
+        /** date range picker */
+        if ($('.datetimes').length) {
+            $('.datetimes').daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format: 'M/DD hh:mm A'
+                }
+            });
+        }
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                    .endOf('month')
+                ]
+            }
+        }, cb);
+        cb(start, end);
+        $('.input-placeholder').mask("00/00/0000", {
+            placeholder: "__/__/____"
+        });
+        $('.input-zip').mask('00000-000', {
+            placeholder: "____-___"
+        });
+        $('.input-money').mask("#.##0,00", {
+            reverse: true
+        });
+        $('.input-phoneus').mask('(000) 000-0000');
+        $('.input-mixed').mask('AAA 000-S0S');
+        $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/,
+                    optional: true
+                }
+            },
+            placeholder: "___.___.___.___"
+        });
+        // editor
+        var editor = document.getElementById('editor');
+        if (editor) {
+            var toolbarOptions = [
+                [{
+                    'font': []
+                }],
+                [{
+                    'header': [1, 2, 3, 4, 5, 6, false]
+                }],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{
+                        'header': 1
+                    },
+                    {
+                        'header': 2
+                    }
+                ],
+                [{
+                        'list': 'ordered'
+                    },
+                    {
+                        'list': 'bullet'
+                    }
+                ],
+                [{
+                        'script': 'sub'
+                    },
+                    {
+                        'script': 'super'
+                    }
+                ],
+                [{
+                        'indent': '-1'
+                    },
+                    {
+                        'indent': '+1'
+                    }
+                ], // outdent/indent
+                [{
+                    'direction': 'rtl'
+                }], // text direction
+                [{
+                        'color': []
+                    },
+                    {
+                        'background': []
+                    }
+                ], // dropdown with defaults from theme
+                [{
+                    'align': []
+                }],
+                ['clean'] // remove formatting button
+            ];
+            var quill = new Quill(editor, {
+                modules: {
+                    toolbar: toolbarOptions
+                },
+                theme: 'snow'
+            });
+        }
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+
+</body>
+
+</html>
