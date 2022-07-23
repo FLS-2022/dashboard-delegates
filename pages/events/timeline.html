@@ -1,205 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard Delegates</title>
     <!-- plugins:css -->
-    <link
-      rel="stylesheet"
-      href="../../assets/vendors/mdi/css/materialdesignicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendors/css/vendor.bundle.base.css"
-    />
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link
-      rel="stylesheet"
-      href="https://www.codeithub.com/responsive-vertical-timeline-design-html-css/style.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link
-      rel="stylesheet"
-      href="https://res.cloudinary.com/kabupaten-sukoharjo/raw/upload/v1657587189/style_n6b4x3.css"
-    />
+    <link rel="stylesheet"
+        href="https://res.cloudinary.com/kabupaten-sukoharjo/raw/upload/v1657587189/style_n6b4x3.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
-    <!-- custom css -->
-    <link rel="stylesheet" href="timeline.css" />
-  </head>
+    <style>
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            padding-left: 50px;
+            background-clip: border-box;
+            border: 1px solid rgba(26, 54, 126, 0.125);
+            border-radius: .25rem;
+        }
 
-  <body style="font-family: 'Poppins', sans-serif">
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .vertical-timeline {
+            width: 100%;
+            position: relative;
+            padding: 1s.5rem 0 2rem;
+        }
+
+        .vertical-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 67px;
+            height: 100%;
+            width: 4px;
+            background: #ff43aa9a;
+            border-radius: .25rem;
+        }
+
+        .vertical-timeline-element {
+            position: relative;
+            margin: 0 0 1rem;
+        }
+
+        .vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
+            visibility: visible;
+            animation: cd-bounce-1 .8s;
+        }
+
+        .vertical-timeline-element-icon {
+            position: absolute;
+            top: 0;
+            left: 58px;
+        }
+
+
+        .badge-dot-xl {
+            width: 18px;
+            height: 18px;
+            position: relative;
+        }
+
+        .badge:empty {
+            display: none;
+        }
+
+        .badge-dot-xl::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: .25rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -5px 0 0 -5px;
+            background: #fff;
+        }
+
+        .vertical-timeline-element-content {
+            position: relative;
+            margin-left: 90px;
+            font-size: .8rem;
+        }
+
+        .vertical-timeline-element-content .timeline-title {
+            font-size: .8rem;
+            text-transform: uppercase;
+            margin: 0 0 .5rem;
+            padding: 2px 0 0;
+            font-weight: bold;
+        }
+
+        .vertical-timeline-element-content .vertical-timeline-element-date {
+            display: block;
+            position: absolute;
+            left: -125px;
+            top: 0;
+            padding-right: 10px;
+            text-align: left;
+            color: #e8e9eb;
+            font-size: .7619rem;
+            white-space: nowrap;
+        }
+
+        .vertical-timeline-element-content:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media (max-width: 767px) {
+            .card {
+                padding-left: 0px;
+            }
+
+            .vertical-timeline {
+                margin-left: -50px;
+            }
+
+            .vertical-timeline-element-content .vertical-timeline-element-date {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <div class="container-scroller">
-      <!-- partial:../../partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div
-          class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
-        >
-          <a class="sidebar-brand brand-logo" href="index.html"
-            ><img src="../../assets/images/logox.png" alt="logo"
-          /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"
-            ><img src="../../assets/images/logox_mini.png" alt="logo"
-          /></a>
-        </div>
-        <ul class="nav">
-          <li class="nav-item profile">
-            <div class="profile-desc">
-              <div class="profile-pic">
-                <div class="count-indicator">
-                  <img
-                    class="img-xs rounded-circle"
-                    src="../../assets/images/faces/face12.jpg"
-                    alt=""
-                  />
-                  <span class="count bg-success"></span>
-                </div>
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
-                  <span>Delegates</span>
-                </div>
-              </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"
-                ><i class="mdi mdi-dots-vertical"></i
-              ></a>
-              <div
-                class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
-                aria-labelledby="profile-dropdown"
-              >
-                <!-- <a href="#" class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-dark rounded-circle">
-                    <i class="mdi mdi-settings text-primary"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                </div>
-              </a> -->
-                <div class="dropdown-divider"></div>
-                <a
-                  href="../../resetpassword.html"
-                  class="dropdown-item preview-item"
-                >
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-onepassword text-info"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">
-                      Change Password
-                    </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a
-                  href="../../index.html#ToDoList_"
-                  class="dropdown-item preview-item"
-                >
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar-today text-success"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">
-                      To-do list
-                    </p>
-                  </div>
-                </a>
-              </div>
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="index.html"><img src="../../assets/images/logox.png"
+                        alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logox_mini.png"
+                        alt="logo" /></a>
             </div>
-          </li>
-          <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="../../index.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a
-              class="nav-link"
-              data-toggle="collapse"
-              href="#ui-basic"
-              aria-expanded="false"
-              aria-controls="ui-basic"
-            >
-              <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
-              </span>
-              <span class="menu-title">Events</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/events/main-event.html">Form Registrations</a>
+            <ul class="nav">
+                <li class="nav-item profile">
+                    <div class="profile-desc">
+                        <div class="profile-pic">
+                            <div class="count-indicator">
+                                <img class="img-xs rounded-circle " src="../../assets/images/faces/face12.jpg" alt="">
+                                <span class="count bg-success"></span>
+                            </div>
+                            <div class="profile-name">
+                                <h5 class="mb-0 font-weight-normal usr-profile">-</h5>
+                                <span>Delegates</span>
+                            </div>
+                        </div>
+                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
+                                class="mdi mdi-dots-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+                            aria-labelledby="profile-dropdown">
+                            <div class="dropdown-divider"></div>
+                            <a href="../../resetpassword.html" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-onepassword  text-info"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../../index.html#ToDoList_" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-calendar-today text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../index.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-laptop"></i>
+                        </span>
+                        <span class="menu-title">Events</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <!-- <li class="nav-item"> <a class="nav-link" href="pages/events/main-event.html">Form Registrations</a>
               </li> -->
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/events/timeline.html"
-                    >Timeline</a
-                  >
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="../../pages/events/timeline.html">Timeline</a>
+                            </li>
+                            <li class="nav-item cls-main-event"> <a class="nav-link"
+                                    href="../../pages/events/rooms.html">Rooms</a>
+                            </li>
+                            <li class="nav-item cls-main-event"> <a class="nav-link"
+                                    href="../../pages/events/main-event.html">Delegates Journey</a></li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/events/rooms.html"
-                    >Rooms</a
-                  >
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../pages/forms/delegates_form.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-playlist-play"></i>
+                        </span>
+                        <span class="menu-title">Form Registrations</span>
+                    </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/events/main-event.html"
-                    >Delegates Journey</a
-                  >
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="../../pages/news/announcement.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Announcements</span>
+                    </a>
                 </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/forms/delegates_form.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Form Registrations</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/news/announcement.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
-              </span>
-              <span class="menu-title">Announcements</span>
-            </a>
-          </li>
-          <!-- <li class="nav-item menu-items">
+                <!-- <li class="nav-item menu-items">
           <a class="nav-link" href="pages/charts/chartjs.html">
             <span class="menu-icon">
               <i class="mdi mdi-chart-bar"></i>
@@ -207,295 +252,417 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-          <li class="nav-item menu-items">
-            <a
-              class="nav-link"
-              data-toggle="collapse"
-              href="#admin"
-              aria-expanded="false"
-              aria-controls="admin"
-            >
-              <span class="menu-icon">
-                <i class="mdi mdi-account-key"></i>
-              </span>
-              <span class="menu-title">Admin</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="admin">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/admin/admin.html">
-                    Data Registrans
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/admin/wl_validate.html">
-                    Validate WL
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../../pages/admin/payment_validate.html"
-                  >
-                    Validate Payment
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/admin/approved.html">
-                    Data Approved
-                  </a>
-                </li>
-                <!-- <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
+                <li class="nav-item menu-items mn-admin">
+                    <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false"
+                        aria-controls="admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account-key"></i>
+                        </span>
+                        <span class="menu-title">Admin</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="admin">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html">
+                                    Admin old</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data
+                                    Registrans
+                                </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/wl_validate.html">
+                                    Validate WL
+                                </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/payment_validate.html">
+                                    Validate
+                                    Payment
+                                </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/approved.html"> Data
+                                    Approved
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
               </li> -->
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item menu-items">
-            <a
-              class="nav-link"
-              data-toggle="collapse"
-              href="#auth"
-              aria-expanded="false"
-              aria-controls="auth"
-            >
-              <span class="menu-icon">
-                <i class="mdi mdi-security"></i>
-              </span>
-              <span class="menu-title">Help Desk</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/helpdesk/faq.html">
-                    FAQs
-                  </a>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../pages/helpdesk/contact.html">
-                    Contact Support
-                  </a>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-security"></i>
+                        </span>
+                        <span class="menu-title">Help Desk</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="auth">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/faq.html"> FAQs </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/helpdesk/contact.html"> Contact
+                                    Support
+                                </a></li>
+                        </ul>
+                    </div>
                 </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item menu-items">
-            <a
-              class="nav-link"
-              href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
-              target="_blank"
-            >
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Booklet Delegates</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_navbar.html -->
-        <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div
-            class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center"
-          >
-            <a class="navbar-brand brand-logo-mini" href="../../index.html"
-              ><img src="../../assets/images/logo-mini.svg" alt="logo"
-            /></a>
-          </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <button
-              class="navbar-toggler navbar-toggler align-self-center"
-              type="button"
-              data-toggle="minimize"
-            >
-              <span class="mdi mdi-menu"></span>
-            </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Welcome to Delegates Dashboard"
-                  />
-                </form>
-              </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                        target="_blank">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-file-document-box"></i>
+                        </span>
+                        <span class="menu-title">Booklet Delegates</span>
+                    </a>
+                </li>
             </ul>
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown d-none d-lg-block">
-                <a
-                  class="nav-link btn btn-success create-new-button"
-                  id="createbuttonDropdown"
-                  aria-expanded="false"
-                  href="https://futureleadersummit.org/"
-                  target="_blank"
-                  >Go To FLS 2022 Homepage</a
-                >
-              </li>
-              <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="#">
-                  <i class="mdi mdi-view-grid"></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown border-left"></li>
-              <li class="nav-item dropdown border-left">
-                <a
-                  class="nav-link count-indicator dropdown-toggle"
-                  id="notificationDropdown"
-                  href="#"
-                  data-toggle="dropdown"
-                >
-                  <i class="mdi mdi-bell"></i>
-                  <span class="count bg-danger"></span>
-                </a>
-                <div
-                  class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                  aria-labelledby="notificationDropdown"
-                >
-                  <h6 class="p-3 mb-0">Notifications</h6>
-                  <div class="dropdown-divider"></div>
-                  <a
-                    class="dropdown-item preview-item"
-                    href="../../pages/news/announcement.html"
-                  >
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-calendar text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">
-                        Announcements Delegates
-                      </p>
-                      <p class="text-muted ellipsis mb-0">
-                        Pengumuman seleksi peserta main event FLS 2022
-                      </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all notifications</p>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link"
-                  id="profileDropdown"
-                  href="#"
-                  data-toggle="dropdown"
-                >
-                  <div class="navbar-profile">
-                    <img
-                      class="img-xs rounded-circle"
-                      src="../../assets/images/faces/face12.jpg"
-                      alt=""
-                    />
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">
-                      Ryan Redo
-                    </p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div
-                  class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                  aria-labelledby="profileDropdown"
-                >
-                  <h6 class="p-3 mb-0">Profile</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
-                </div>
-              </li>
-            </ul>
-            <button
-              class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-              type="button"
-              data-toggle="offcanvas"
-            >
-              <span class="mdi mdi-format-line-spacing"></span>
-            </button>
-          </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">Timeline</h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Delegates</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Timeline
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div class="row">
-              <div class="col-lg-12 col-md-12 grid-margin stretch-card">
-                <div class="card">
-                  <div
-                    class="card-body d-flex align-items-center justify-content-center"
-                  >
-                    <div>
-                      <p
-                        class="fw-bold text-center"
-                        style="font-size: 48px; letter-spacing: 1px"
-                      >
-                        Timeline
-                      </p>
-                      <!-- kalo pake eksport gambar daong -->
-                      <img
-                        style="margin: auto"
-                        class="img-fluid"
-                        src="../../assets/images/timeline/timeline.png"
-                        alt=""
-                      />
-                    </div>
-                  </div>
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
+                            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
                 </div>
-              </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="Welcome to Delegates Dashboard">
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
+                                aria-expanded="false" href="https://futureleadersummit.org/" target="_blank">Go To FLS
+                                2022 Homepage</a>
+
+                        </li>
+                        <li class="nav-item nav-settings d-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <i class="mdi mdi-view-grid"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown border-left">
+
+                        </li>
+                        <li class="nav-item dropdown border-left">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                                data-toggle="dropdown">
+                                <i class="mdi mdi-bell"></i>
+                                <span class="count bg-danger cls-announce"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="notificationDropdown">
+                                <h6 class="p-3 mb-0">Notifications</h6>
+                                <div class="dropdown-divider"></div>
+                                <div class="cls-announce">
+                                    <a class="dropdown-item preview-item " href="../../pages/news/announcement.html">
+                                        <div class="preview-thumbnail  ">
+                                            <div class="preview-icon bg-dark rounded-circle">
+                                                <i class="mdi mdi-calendar text-success"></i>
+                                            </div>
+                                        </div>
+                                        <div class="preview-item-content  ">
+                                            <p class="preview-subject mb-1">Announcements Delegates</p>
+                                            <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event
+                                                FLS
+                                                2022 </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-divider cls-announce"></div>
+                                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                                    <div class="preview-thumbnail  ">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-lock text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content  ">
+                                        <p class="preview-subject mb-1">there is no Announcements yet!</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider cls-announce"></div>
+                                <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face12.jpg"
+                                        alt="">
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Ryan Redo</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="profileDropdown">
+                                <h6 class="p-3 mb-0">Profile</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1" onclick="handleLogout()">Log out</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <p class="p-3 mb-0 text-center">Advanced settings</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> Timeline </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Delegates</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Timeline</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 grid-margin stretch-card ">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div
+                                        class="vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-success"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Open Registrations Delegates</h4>
+                                                    <p>delegates must fill registration form <a
+                                                            href="../forms/delegates_form.html"
+                                                            class="text-bg-secondary">here</a></p>
+                                                    <span class="vertical-timeline-element-date">25 July</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Close Registrations Delegates</h4>
+                                                    <p>registration is closed for delegates and waiting for the
+                                                        announcement</a></p>
+
+                                                    <span class="vertical-timeline-element-date">18 August</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Announcements Delegates</h4>
+                                                    <p>the announcement of delegates selection will show in <a
+                                                            href="../../index.html" class="text-bg-secondary">dashboard
+                                                            status</a> and <a href="../news/announcement.html"
+                                                            class="text-success">announcement page</a></p>
+                                                    <span class="vertical-timeline-element-date">28 August</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Main Event Day 1</h4>
+                                                    <p>delegates started the rundown of events, opened with the main
+                                                        event
+                                                        which can be accessed <a href="../events/main-event.html"
+                                                            class="text-bg-secondary">here</a></p>
+                                                    <span class="vertical-timeline-element-date">17 September</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-success"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Main Event Day 2</h4>
+                                                    <p>delegates continue their journey on day 2 and submit the assigned
+                                                        tasks</p>
+                                                    <span class="vertical-timeline-element-date">24 September</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Main Event Day 3</h4>
+                                                    <p><i class="text-success fw-bold"
+                                                            style="font-weight: 700;text-transform: italic;">
+                                                            congratulations!</i> you
+                                                        have
+                                                        reached the final step of the main
+                                                        event, collect the given task and proceed to the next event
+                                                        step!</p>
+                                                    <span class="vertical-timeline-element-date">25 September</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 1</h4>
+                                                    <p>Yay, you're finally here, let's continue the journey at the FAW
+                                                        event which can be accessed <a href="../events/main-event.html"
+                                                            class="text-success">here</a></p>
+                                                    <span class="vertical-timeline-element-date">8-9 October</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 2</h4>
+                                                    <p>delegates continue their FAW journey on week 2 and submit the
+                                                        assigned
+                                                        tasks</p>
+                                                    <span class="vertical-timeline-element-date">15-16 October</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 3</h4>
+                                                    <p>delegates continue their FAW journey on week 3 and submit the
+                                                        assigned
+                                                        tasks</p>
+                                                    <span class="vertical-timeline-element-date">22-23 October</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-success"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 4</h4>
+                                                    <p><i class="text-warning" style="font-weight: 700;">The journey
+                                                            still continues!</i> there
+                                                        are still many tasks to be
+                                                        completed in week 4, cheers!</p>
+                                                    <span class="vertical-timeline-element-date">29-30 October</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 5</h4>
+                                                    <p><i class="text-warning" style="font-weight: 700;">A little bit
+                                                            more!</i> complete tasks and go to the last step of FAW
+                                                        journey!</p>
+                                                    <span class="vertical-timeline-element-date">5-6 November</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-info"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">FAW Week 6</h4>
+                                                    <p><i class="text-success fw-bold"
+                                                            style="font-weight: 700;text-transform: italic;">
+                                                            congratulations!</i> you
+                                                        have
+                                                        reached the final step of the FAW
+                                                        event, submit the final task and get your reward!</p>
+                                                    <span class="vertical-timeline-element-date">12-13 November</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-item vertical-timeline-element">
+                                            <div>
+                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                    <i class="badge badge-dot badge-dot-xl badge-dark"> </i>
+                                                </span>
+                                                <div class="vertical-timeline-element-content bounce-in">
+                                                    <h4 class="timeline-title">Graduation</h4>
+                                                    <p>Exciting journey with you! <i class="text-success fw-bold"
+                                                            style="font-weight: 700;text-transform: italic;">
+                                                            Congratulations</i> on completing this
+                                                        whole great journey. See you at FLS Event 2023!</p>
+                                                    <span class="vertical-timeline-element-date">28-30 November</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright
+                            ©futureleadersummit
+                            2022</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <a
+                                href="https://instagram.com/flsummit" target="_blank">Future
+                                Leader Summit</a> </span>
+                    </div>
+                </footer>
+                <!-- partial -->
             </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            <div
-              class="d-sm-flex justify-content-center justify-content-sm-between"
-            >
-              <span
-                class="text-muted d-block text-center text-sm-left d-sm-inline-block"
-                >Copyright ©futureleadersummit 2022</span
-              >
-              <span
-                class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
-              >
-                <a href="https://instagram.com/flsummit" target="_blank"
-                  >Future Leader Summit</a
-                >
-              </span>
-            </div>
-          </footer>
-          <!-- partial -->
+            <!-- main-panel ends -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -509,6 +676,41 @@
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
+    <script>
+        setTimeout(() => {
+            let show = localStorage.getItem('user')
+            if (!show) window.open('./login.html', '_self')
+            let usrProfile = localStorage.getItem('user')
+            usrProfile = JSON.parse(usrProfile)
+            console.log('usrProfile', usrProfile)
+
+            let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+            menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+
+            document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+            document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+
+            let menuDelegate = document.getElementsByClassName('cls-main-event');
+            for (let i = 0; i < menuDelegate.length; i++) {
+                menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ?
+                    'none' :
+                    'block'
+            }
+            let notifAnnounce = document.getElementsByClassName('cls-announce');
+            for (let i = 0; i < notifAnnounce.length; i++) {
+                notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
+                        usrProfile
+                        .is_rejected && !usrProfile.is_waiting) ? 'none' :
+                    'block';
+            }
+        }, 10);
+
+        function handleLogout() {
+            localStorage.clear()
+            window.open(`${window.location.origin}/login.html`, '_self')
+        }
+    </script>
     <!-- endinject -->
-  </body>
+</body>
+
 </html>

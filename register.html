@@ -101,7 +101,13 @@
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control p_input border-white pass-input" placeholder="Password"
-                      required />
+                      id="pasShow" required />
+                  </div>
+                  <div class="form-check" style="margin-bottom:-5px ;">
+                    <label class="form-check-label text-left">
+                      <input type="checkbox" class="form-check-input" onclick="passShow()" />
+                      Show password
+                    </label>
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
@@ -114,9 +120,6 @@
                   <div class="text-center">
                     <button type="button" onclick="handleRegister()" class="btn btn-login btn-block enter-btn">
                       Sign Up
-                    </button>
-                    <button type="submit" class="btn btn-login btn-block enter-btn">
-                      Sign Up with Google
                     </button>
                   </div>
                   <p class="sign-up text-center py-3" style="font-size: 12px">
@@ -158,7 +161,7 @@
         let email = document.getElementsByClassName('email-input')[0].value
         let password = document.getElementsByClassName('pass-input')[0].value
         let res = await axios({
-          url: 'http://203.194.112.187:33041/registration',
+          url: 'https://api.futureleadersummit.org/registration',
           method: 'POST',
           data: {
             username: username,
@@ -170,6 +173,15 @@
         window.open('./login.html', '_self')
       } catch (error) {
         console.error(error)
+      }
+    }
+
+    function passShow() {
+      let x = document.getElementById('pasShow');
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
       }
     }
   </script>

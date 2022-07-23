@@ -38,7 +38,7 @@
                 <span class="count bg-success"></span>
               </div>
               <div class="profile-name">
-                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                <h5 class="mb-0 font-weight-normal usr-profile">Ryan Redo</h5>
                 <span>Delegates</span>
               </div>
             </div>
@@ -105,8 +105,10 @@
               </li> -->
               <li class="nav-item"> <a class="nav-link" href="../../pages/events/timeline.html">Timeline</a>
               </li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/events/main-event.html">Delegates Journey</a>
+              <li class="nav-item cls-main-event"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+              </li>
+              <li class="nav-item cls-main-event"> <a class="nav-link"
+                  href="../../pages/events/main-event.html">Delegates Journey</a>
               </li>
             </ul>
           </div>
@@ -135,7 +137,7 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mn-admin">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="admin">
             <span class="menu-icon">
               <i class="mdi mdi-account-key"></i>
@@ -145,6 +147,8 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html"> Admin old</a>
+              </li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data Registrans
                 </a>
               </li>
@@ -226,29 +230,40 @@
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                 data-toggle="dropdown">
                 <i class="mdi mdi-bell"></i>
-                <span class="count bg-danger"></span>
+                <span class="count bg-danger cls-announce"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                 aria-labelledby="notificationDropdown">
                 <h6 class="p-3 mb-0">Notifications</h6>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item" href="../../pages/news/announcement.html">
-                  <div class="preview-thumbnail">
+                <div class="cls-announce">
+                  <a class="dropdown-item preview-item " href="../../pages/news/announcement.html">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">Announcements Delegates</p>
+                      <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
+                        2022 </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="dropdown-divider cls-announce"></div>
+                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                  <div class="preview-thumbnail  ">
                     <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar text-success"></i>
+                      <i class="mdi mdi-lock text-danger"></i>
                     </div>
                   </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject mb-1">Announcements Delegates</p>
-                    <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS 2022 </p>
+                  <div class="preview-item-content  ">
+                    <p class="preview-subject mb-1">there is no Announcements yet!</p>
                   </div>
                 </a>
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-                <p class="p-3 mb-0 text-center">See all notifications</p>
+                <div class="dropdown-divider cls-announce"></div>
+                <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -270,7 +285,7 @@
                     </div>
                   </div>
                   <div class="preview-item-content">
-                    <p class="preview-subject mb-1">Log out</p>
+                    <p class="preview-subject mb-1" onclick="handleLogout()">Log out</p>
                   </div>
                 </a>
                 <div class="dropdown-divider"></div>
@@ -450,6 +465,38 @@
   <script src="../../assets/js/misc.js"></script>
   <script src="../../assets/js/settings.js"></script>
   <script src="../../assets/js/todolist.js"></script>
+  <script>
+    setTimeout(() => {
+      let show = localStorage.getItem('user')
+      if (!show) window.open('./login.html', '_self')
+      let usrProfile = localStorage.getItem('user')
+      usrProfile = JSON.parse(usrProfile)
+      console.log('usrProfile', usrProfile)
+
+      let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+      menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+
+      document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+      document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+
+      let menuDelegate = document.getElementsByClassName('cls-main-event');
+      for (let i = 0; i < menuDelegate.length; i++) {
+        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ? 'none' :
+          'block'
+      }
+      let notifAnnounce = document.getElementsByClassName('cls-announce');
+      for (let i = 0; i < notifAnnounce.length; i++) {
+        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
+            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+    }, 10);
+
+    function handleLogout() {
+      localStorage.clear()
+      window.open(`${window.location.origin}/login.html`, '_self')
+    }
+  </script>
   <!-- endinject -->
 </body>
 

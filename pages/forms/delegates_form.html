@@ -57,7 +57,7 @@
                 <span class="count bg-success"></span>
               </div>
               <div class="profile-name">
-                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                <h5 class="mb-0 font-weight-normal usr-profile">-</h5>
                 <span>Delegates</span>
               </div>
             </div>
@@ -129,10 +129,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="../../pages/events/timeline.html">Timeline</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+              <li class="nav-item cls-main-event">
+                <a class="nav-link " href="../../pages/events/rooms.html">Rooms</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item cls-main-event">
                 <a class="nav-link" href="../../pages/events/main-event.html">Delegates Journey</a>
               </li>
             </ul>
@@ -162,7 +162,7 @@
                 <span class="menu-title">Delegates Journey</span>
               </a>
             </li> -->
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mn-admin">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="admin">
             <span class="menu-icon">
               <i class="mdi mdi-account-key"></i>
@@ -172,6 +172,8 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html"> Admin old</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="../../pages/admin/admin.html">
                   Data Registrans
@@ -265,33 +267,40 @@
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                 data-toggle="dropdown">
                 <i class="mdi mdi-bell"></i>
-                <span class="count bg-danger"></span>
+                <span class="count bg-danger cls-announce"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                 aria-labelledby="notificationDropdown">
                 <h6 class="p-3 mb-0">Notifications</h6>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item" href="../../pages/news/announcement.html">
-                  <div class="preview-thumbnail">
+                <div class="cls-announce">
+                  <a class="dropdown-item preview-item " href="../../pages/news/announcement.html">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">Announcements Delegates</p>
+                      <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
+                        2022 </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="dropdown-divider cls-announce"></div>
+                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                  <div class="preview-thumbnail  ">
                     <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar text-success"></i>
+                      <i class="mdi mdi-lock text-danger"></i>
                     </div>
                   </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject mb-1">
-                      Announcements Delegates
-                    </p>
-                    <p class="text-muted ellipsis mb-0">
-                      Pengumuman seleksi peserta main event FLS 2022
-                    </p>
+                  <div class="preview-item-content  ">
+                    <p class="preview-subject mb-1">there is no Announcements yet!</p>
                   </div>
                 </a>
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-                <p class="p-3 mb-0 text-center">See all notifications</p>
+                <div class="dropdown-divider cls-announce"></div>
+                <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -315,7 +324,7 @@
                     </div>
                   </div>
                   <div class="preview-item-content">
-                    <p class="preview-subject mb-1">Log out</p>
+                    <p class="preview-subject mb-1" onclick="handleLogout()">Log out</p>
                   </div>
                 </a>
                 <div class="dropdown-divider"></div>
@@ -388,7 +397,7 @@
                             <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">
                               Cancel
                             </button>
-                            <button type="submit" class="btn mb-2 btn-success">
+                            <button type="button" onclick="handleSubmitForm()" class="btn mb-2 btn-success">
                               Submit
                             </button>
                           </div>
@@ -397,14 +406,14 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
-                      <input type="text" class="form-control rounded-pill " id="exampleInputName1" placeholder="Nama"
-                        pattern="^[a-zA-Z\s\.\-]*$" minlength="4" maxlength="50" required />
+                      <input type="text" class="form-control rounded-pill " name="nama-input" id="exampleInputName1"
+                        placeholder="Nama" pattern="^[a-zA-Z\s\.\-]*$" minlength="4" maxlength="50" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">Usernama not valid.</div>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Phone Number</label>
-                      <input type="text" class="form-control rounded-pill " id="simpleinput"
+                      <input type="text" class="form-control rounded-pill " name="phone-input" id="simpleinput"
                         placeholder="ex : 081322566965 | +62xxx " pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)"
                         minlength="4" maxlength="20" required />
                       <div class="valid-feedback">Looks good!</div>
@@ -413,8 +422,8 @@
                     <div class="form-row">
                       <div class="col-md-8 mb-3">
                         <label for="validationCustom03">Place of Birth</label>
-                        <input type="text" class="form-control rounded-pill " id="validationCustom03" placeholder="Solo"
-                          pattern="^[a-zA-Z\s]*$" minlength="4" required />
+                        <input type="text" class="form-control rounded-pill " name="ttl-input1" id="validationCustom03"
+                          placeholder="Solo" pattern="^[a-zA-Z\s]*$" minlength="4" required />
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">
                           Please provide a valid city.
@@ -423,8 +432,8 @@
                       <div class="col-md-4 mb-3">
                         <label for="date-input1">Date of Birth</label>
                         <div class="input-group">
-                          <input type="text" class="form-control rounded-pill  drgpicker" id="date-input1"
-                            value="02/09/1999" aria-describedby="button-addon2" />
+                          <input type="text" class="form-control rounded-pill  drgpicker" name="ttl-input2"
+                            id="date-input1" value="02/09/1999" aria-describedby="button-addon2" />
 
                           <div class="input-group-append">
                             <div class="input-group-text" id="button-addon-date" style="border-color: #3a155e">
@@ -437,14 +446,14 @@
                     </div>
                     <div class="form-group">
                       <label for="address-wpalaceholder">Domicile</label>
-                      <input type="text" id="address-wpalaceholder" class="form-control rounded-pill "
+                      <input type="text" id="address-wpalaceholder" name="dm-input" class="form-control rounded-pill "
                         placeholder="Enter your address" pattern="^[a-zA-Z\s\.\-]*$" minlength="4" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">Badd address</div>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">University</label>
-                      <input type="text" class="form-control rounded-pill " id="simpleinput"
+                      <input type="text" class="form-control rounded-pill " name="unv-input" id="simpleinput"
                         placeholder="ex : Universitas Diponegoro" pattern="^[a-zA-Z\s]*$" minlength="4" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">
@@ -453,15 +462,15 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Major</label>
-                      <input type="text" class="form-control rounded-pill " id="simpleinput"
+                      <input type="text" class="form-control rounded-pill " name="mjr-input" id="simpleinput"
                         placeholder="ex : Teknik Kimia" pattern="^[a-zA-Z\s]*$" minlength="4" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">Not a correct major.</div>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Batch</label>
-                      <input type="text" class="form-control rounded-pill " id="simpleinput" placeholder="ex : 2019"
-                        pattern="^\d+$" minlength="4" maxlength="4" required />
+                      <input type="text" class="form-control rounded-pill " name="bth-input" id="simpleinput"
+                        placeholder="ex : 2019" pattern="^\d+$" minlength="4" maxlength="4" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">
                         Please fill correct value number
@@ -469,7 +478,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Choose your room 1</label>
-                      <select class="form-control rounded-pill " id="exampleSelectGender">
+                      <select class="form-control rounded-pill " name="rm1-input" id="exampleSelectGender">
                         <option>Education</option>
                         <option>Economics</option>
                         <option>Social & Humanity</option>
@@ -481,7 +490,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Choose your room 2</label>
-                      <select class="form-control rounded-pill " id="exampleSelectGender">
+                      <select class="form-control rounded-pill " name="rm2-input" id="exampleSelectGender">
                         <option>Education</option>
                         <option>Economics</option>
                         <option>Social & Humanity</option>
@@ -495,7 +504,7 @@
                       <div class="form-row mb-3">
                         <label>Submit CV, template download
                           <a href="">disini</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-cv" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload CV (*PDF)"
@@ -515,7 +524,7 @@
                       <div class="form-row mb-3">
                         <label>Submit Motlet, Template can download
                           <a href="">here</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-motlet" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload Motlet (*Docx)"
@@ -536,7 +545,7 @@
                       <div class="form-row mb-3">
                         <label>Submit Study Case Room 1, Template can download
                           <a href="">here</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-study1" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload Case 1 (*Docx)"
@@ -556,7 +565,7 @@
                       <div class="form-row mb-3">
                         <label>Submit Study Case Room 2, Template can download
                           <a href="">here</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-study2" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload Case 2 (*Docx)"
@@ -576,7 +585,7 @@
                       <div class="form-row mb-3">
                         <label>Submit KTM, Template can download
                           <a href="">here</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-ktm" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload KTM (*PDF)"
@@ -595,7 +604,7 @@
                       <div class="form-row mb-3">
                         <label>Submit E-Sertifikat Template can download
                           <a href="">here</a></label>
-                        <input type="file" name="img[]" class="file-upload-default" required />
+                        <input type="file" name="file-srt" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
                             placeholder="Upload E-Sertifikat (*PDF)"
@@ -628,6 +637,13 @@
                       Submit form
                     </button>
                   </form>
+                  <div class="alert alert-success" style="display: none;">
+                    <strong>Success!</strong> <span class="msg-success"></span>
+                  </div>
+
+                  <div class="alert alert-danger" style="display: none;">
+                    <strong>Danger!</strong> <span class="msg-danger"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -696,10 +712,37 @@
   <script src="../../assets/additional/js/select2.min.js"></script>
   <script src="../../assets/additional/js/jquery.validate.min.js"></script>
   <script src="../../assets/additional/js/jquery.timepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   <!-- 
     <script src='js/uppy.min.js'></script> -->
 
   <script>
+    setTimeout(() => {
+      let show = localStorage.getItem('user')
+      if (!show) window.open('./login.html', '_self')
+      let usrProfile = localStorage.getItem('user')
+      usrProfile = JSON.parse(usrProfile)
+      console.log('usrProfile', usrProfile)
+
+      let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+      menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+
+      document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+      document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+
+      let menuDelegate = document.getElementsByClassName('cls-main-event');
+      for (let i = 0; i < menuDelegate.length; i++) {
+        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ? 'none' :
+          'block'
+      }
+      let notifAnnounce = document.getElementsByClassName('cls-announce');
+      for (let i = 0; i < notifAnnounce.length; i++) {
+        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
+            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+    }, 10);
+
     $(".select2").select2({
       theme: "bootstrap4",
     });
@@ -841,35 +884,121 @@
         theme: "snow",
       });
     }
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-      "use strict";
-      window.addEventListener(
-        "load",
-        function () {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName("needs-validation");
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(
-            forms,
-            function (form) {
-              form.addEventListener(
-                "submit",
-                function (event) {
-                  if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                  }
-                  form.classList.add("was-validated");
-                },
-                false
-              );
-            }
-          );
-        },
-        false
-      );
-    })();
+    // disabling form submissions if there are invalid fields
+    // (function () {
+    //   "use strict";
+    //   window.addEventListener(
+    //     "load",
+    //     function () {
+    //       // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //       var forms = document.getElementsByClassName("needs-validation");
+    //       // Loop over them and prevent submission
+    //       var validation = Array.prototype.filter.call(
+    //         forms,
+    //         function (form) {
+    //           form.addEventListener(
+    //             "submit",
+    //             function (event) {
+    //               if (form.checkValidity() === false) {
+    //                 event.preventDefault();
+    //                 event.stopPropagation();
+    //               }
+    //               form.classList.add("was-validated");
+    //             },
+    //             false
+    //           );
+    //         }
+    //       );
+    //     },
+    //     false
+    //   );
+    // })();
+    async function validateForm(params) {
+      let isValid = true
+      console.log('isValid ', isValid)
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = await Array.prototype.filter.call(forms, async function (form) {
+        console.log('validation ', form.checkValidity())
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+        } else {
+          await handleSubmitForm()
+        }
+      });
+    }
+
+    async function handleSubmitForm() {
+      try {
+        var nama = document.getElementsByName('nama-input')[0]
+        var phone = document.getElementsByName('phone-input')[0]
+        var ttl1 = document.getElementsByName('ttl-input1')[0]
+        var ttl2 = document.getElementsByName('ttl-input2')[0]
+        var domisili = document.getElementsByName('dm-input')[0]
+        var univ = document.getElementsByName('unv-input')[0]
+        var jurusan = document.getElementsByName('mjr-input')[0]
+        var batch = document.getElementsByName('bth-input')[0]
+        var room1 = document.getElementsByName('rm1-input')[0]
+        var room2 = document.getElementsByName('rm2-input')[0]
+
+        var fileCv = document.getElementsByName('file-cv')[0]
+        var fileMotlet = document.getElementsByName('file-motlet')[0]
+        var fileStudy1 = document.getElementsByName('file-study1')[0]
+        var fileStudy2 = document.getElementsByName('file-study2')[0]
+        var fileKtm = document.getElementsByName('file-ktm')[0]
+        var fileSrt = document.getElementsByName('file-srt')[0]
+
+        let usrProfile = localStorage.getItem('user')
+        usrProfile = JSON.parse(usrProfile)
+
+        let formData = new FormData()
+        formData.append('user_id', usrProfile.id)
+        formData.append('nama', nama.value)
+        formData.append('phone', phone.value)
+        formData.append('ttl', (ttl1.value + ' ' + ttl2.value))
+        formData.append('domisili', domisili.value)
+        formData.append('asal_univ', univ.value)
+        formData.append('jurusan', jurusan.value)
+        formData.append('angkatan', batch.value)
+        formData.append('pilihan_room_1', room1.value)
+        formData.append('pilihan_room_2', room2.value)
+        formData.append('cv', fileCv.files[0])
+        formData.append('motlet', fileMotlet.files[0])
+        formData.append('study_case_1', fileStudy1.files[0])
+        formData.append('study_case_2', fileStudy2.files[0])
+        formData.append('ktm', fileKtm.files[0])
+        formData.append('e_sertifikat', fileSrt.files[0])
+
+        let res = await axios({
+          url: 'https://api.futureleadersummit.org/data-registration',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          data: formData
+        })
+
+        console.log('uert', res.data)
+        let alert = document.getElementsByClassName('alert-success')[0]
+        console.log(alert)
+        let msg = document.getElementsByClassName('msg-success')[0]
+        msg.innerHTML = res.data.message
+        alert.style.display = 'block'
+
+      } catch (error) {
+        console.log(error)
+        let alert = document.getElementsByClassName('alert-danger')[0]
+        console.log(alert)
+        let msg = document.getElementsByClassName('msg-danger')[0]
+        msg.innerHTML = 'Data gagal disimpan!'
+        alert.style.display = 'block'
+      }
+    }
+
+    function handleLogout() {
+      localStorage.clear()
+      window.open(`${window.location.origin}/login.html`, '_self')
+    }
   </script>
 </body>
 

@@ -40,7 +40,7 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                                <h5 class="mb-0 font-weight-normal usr-profile">-</h5>
                                 <span>Delegates</span>
                             </div>
                         </div>
@@ -110,9 +110,10 @@
                             <li class="nav-item"> <a class="nav-link"
                                     href="../../pages/events/timeline.html">Timeline</a>
                             </li>
-                            <li class="nav-item"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+                            <li class="nav-item cls-main-event"> <a class="nav-link"
+                                    href="../../pages/events/rooms.html">Rooms</a>
                             </li>
-                            <li class="nav-item"> <a class="nav-link"
+                            <li class="nav-item cls-main-event"> <a class="nav-link"
                                     href="../../pages/events/main-event.html">Delegates Journey</a></li>
                         </ul>
                     </div>
@@ -141,7 +142,7 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-                <li class="nav-item menu-items">
+                <li class="nav-item menu-items mn-admin">
                     <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false"
                         aria-controls="admin">
                         <span class="menu-icon">
@@ -152,6 +153,8 @@
                     </a>
                     <div class="collapse" id="admin">
                         <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html">
+                                    Admin old</a></li>
                             <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data
                                     Registrans
                                 </a>
@@ -241,30 +244,41 @@
                             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                                 data-toggle="dropdown">
                                 <i class="mdi mdi-bell"></i>
-                                <span class="count bg-danger"></span>
+                                <span class="count bg-danger cls-announce"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                                 aria-labelledby="notificationDropdown">
                                 <h6 class="p-3 mb-0">Notifications</h6>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item" href="../../pages/news/announcement.html">
-                                    <div class="preview-thumbnail">
+                                <div class="cls-announce">
+                                    <a class="dropdown-item preview-item " href="../../pages/news/announcement.html">
+                                        <div class="preview-thumbnail  ">
+                                            <div class="preview-icon bg-dark rounded-circle">
+                                                <i class="mdi mdi-calendar text-success"></i>
+                                            </div>
+                                        </div>
+                                        <div class="preview-item-content  ">
+                                            <p class="preview-subject mb-1">Announcements Delegates</p>
+                                            <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event
+                                                FLS
+                                                2022 </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-divider cls-announce"></div>
+                                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                                    <div class="preview-thumbnail  ">
                                         <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-calendar text-success"></i>
+                                            <i class="mdi mdi-lock text-danger"></i>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Announcements Delegates</p>
-                                        <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
-                                            2022 </p>
+                                    <div class="preview-item-content  ">
+                                        <p class="preview-subject mb-1">there is no Announcements yet!</p>
                                     </div>
                                 </a>
-                                <div class="dropdown-divider"></div>
-
-                                <div class="dropdown-divider"></div>
-
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">See all notifications</p>
+                                <div class="dropdown-divider cls-announce"></div>
+                                <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -272,7 +286,7 @@
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="../../assets/images/faces/face12.jpg"
                                         alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Ryan Redo</p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">-</p>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>
@@ -287,7 +301,7 @@
                                         </div>
                                     </div>
                                     <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Log out</p>
+                                        <p class="preview-subject mb-1" onclick="handleLogout()">Log out</p>
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -409,23 +423,24 @@
                                                         <div class="form-row">
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputUsername4">Username</label>
-                                                                <input type="text" class="form-control"
+                                                                <input type="text" class="form-control usr-input"
                                                                     id="inputUsername4">
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputEmail4">Email</label>
-                                                                <input type="email" class="form-control"
+                                                                <input type="email" class="form-control email-input"
                                                                     id="inputEmail5">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputSubject">Subject</label>
-                                                            <input type="text" class="form-control" id="inputSubject"
-                                                                placeholder="Your subject">
+                                                            <input type="text" class="form-control sbj-input"
+                                                                id="inputSubject" placeholder="Your subject">
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <label for="validationTextarea1">Message</label>
-                                                            <textarea class="form-control" id="validationTextarea1"
+                                                            <textarea class="form-control msg-input"
+                                                                id="validationTextarea1"
                                                                 placeholder="Write a message here" required=""
                                                                 rows="8"></textarea>
                                                             <div class="invalid-feedback"> Please enter a message in the
@@ -439,10 +454,14 @@
                                                                     terms and conditions </label>
                                                             </div>
                                                         </div>
-                                                        <button class="btn btn-primary" type="submit">Send
+                                                        <button class="btn btn-primary btn-submit" type="button"
+                                                            onclick="handleSendEmail()">Send
                                                             Message</button>
                                                     </form>
                                                 </div> <!-- /. card-body -->
+                                                <div class="alert alert-success" style="display: none;">
+                                                    <strong>Success!</strong> <span class="msg-success"></span>
+                                                </div>
                                             </div> <!-- /. card -->
                                         </div> <!-- /. col -->
                                     </div> <!-- /. end-section -->
@@ -483,6 +502,73 @@
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        setTimeout(() => {
+            let show = localStorage.getItem('user')
+            if (!show) window.open('./login.html', '_self')
+            let usrProfile = localStorage.getItem('user')
+            usrProfile = JSON.parse(usrProfile)
+
+            let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+            menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+
+            document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+            document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+
+            let menuDelegate = document.getElementsByClassName('cls-main-event');
+            for (let i = 0; i < menuDelegate.length; i++) {
+                menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ?
+                    'none' :
+                    'block'
+            }
+            let notifAnnounce = document.getElementsByClassName('cls-announce');
+            for (let i = 0; i < notifAnnounce.length; i++) {
+                notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
+                        usrProfile
+                        .is_rejected && !usrProfile.is_waiting) ? 'none' :
+                    'block';
+            }
+        }, 10);
+
+        function handleLogout() {
+            localStorage.clear()
+            window.open(`${window.location.origin}/login.html`, '_self')
+        }
+
+        async function handleSendEmail() {
+            let btn = document.getElementsByClassName('btn-submit')[0]
+            btn.disabled = true
+            try {
+                let username = document.getElementsByClassName('usr-input')[0]
+                let email = document.getElementsByClassName('email-input')[0]
+                let subject = document.getElementsByClassName('sbj-input')[0]
+                let message = document.getElementsByClassName('msg-input')[0]
+
+                let res = await axios({
+                    url: 'https://api.futureleadersummit.org/send-email',
+                    method: 'POST',
+                    data: {
+                        username: username.value,
+                        email: email.value,
+                        subject: subject.value,
+                        message: message.value,
+                    }
+                })
+
+                let alert = document.getElementsByClassName('alert-success')[0]
+                let msg = document.getElementsByClassName('msg-success')[0]
+                msg.innerHTML = res.data.message
+                alert.style.display = 'block'
+                btn.disabled = false
+
+            } catch (error) {
+                console.log(error)
+                btn.disabled = false
+
+            }
+        }
+    </script>
     <!-- endinject -->
 </body>
 
