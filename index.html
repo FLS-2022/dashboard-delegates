@@ -252,16 +252,18 @@
                 </div>
 
                 <div class="dropdown-divider cls-announce"></div>
-                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
-                  <div class="preview-thumbnail  ">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-lock text-danger"></i>
+                <div class="cls-hideAnnounce">
+                  <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-lock text-danger"></i>
+                      </div>
                     </div>
-                  </div>
-                  <div class="preview-item-content  ">
-                    <p class="preview-subject mb-1">there is no Announcements yet!</p>
-                  </div>
-                </a>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">there is no Announcements yet!</p>
+                    </div>
+                  </a>
+                </div>
                 <div class="dropdown-divider cls-announce"></div>
                 <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
@@ -377,7 +379,7 @@
                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
                         <h4 class="mb-0 text-danger payment-status">-</h4><i
-                        class="mdi mdi-alert-circle-outline payment"></i>
+                          class="mdi mdi-alert-circle-outline payment"></i>
                       </div>
                     </div>
                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -565,7 +567,7 @@
       usrProfiles = JSON.parse(usrProfiles)
       let resullt = await getUsrProfile(usrProfiles)
       let usrProfile = resullt
-      console.log('usrProfile',usrProfile)
+      console.log('usrProfile', usrProfile)
       let menuAdmin = document.getElementsByClassName('mn-admin')[0]
       menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
 
@@ -579,16 +581,23 @@
           'block';
       }
       let notifAnnounce = document.getElementsByClassName('cls-announce');
+      let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
       for (let i = 0; i < notifAnnounce.length; i++) {
         notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
             .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+      for (let i = 0; i < hideAnnounce.length; i++) {
+        hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve && usrProfile
+            .is_rejected && usrProfile.is_waiting) ? 'none' :
           'block';
       }
       document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
       document.getElementsByClassName('choice-room1')[0].innerHTML = usrProfile.pilihan_room_1
       document.getElementsByClassName('choice-room2')[0].innerHTML = usrProfile.pilihan_room_2
       if (usrProfile.is_approve) {
-        if (usrProfile.is_paid == false && usrProfile.is_process_payment == false && usrProfile.file_payment ==null) {
+        if (usrProfile.is_paid == false && usrProfile.is_process_payment == false && usrProfile.file_payment ==
+          null) {
           document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
           document.getElementsByClassName('payment-status')[0].innerHTML = 'Menunggu Pembayaran'
         } else if (usrProfile.is_paid == false && usrProfile.is_process_payment == true) {
@@ -596,7 +605,7 @@
           $('.payment-status').addClass('text-warning')
           document.getElementsByClassName('payment-status')[0].innerHTML = 'Menunggu Validasi'
           document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
-        } else if(usrProfile.is_process_payment==false && usrProfile.file_payment != null){
+        } else if (usrProfile.is_process_payment == false && usrProfile.file_payment != null) {
           console.log('pymnt rmk', usrProfiles.payment_remarks)
           document.getElementsByClassName('payment-status')[0].innerHTML = 'Reject'
           document.getElementsByClassName('payment')[0].setAttribute("title", usrProfile.payment_remarks);
@@ -607,7 +616,7 @@
           $('.payment-status').addClass('text-success')
           document.getElementsByClassName('payment-status')[0].innerHTML = 'Lunas'
           document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
-        } 
+        }
         document.getElementsByClassName('selection-status')[0].innerHTML = 'Approve'
         document.getElementsByClassName('room-passed')[0].innerHTML = usrProfile.selection_room
         document.getElementsByClassName('info-rejection')[0].setAttribute("hidden", true);

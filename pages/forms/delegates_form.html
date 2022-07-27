@@ -287,16 +287,18 @@
                 </div>
 
                 <div class="dropdown-divider cls-announce"></div>
-                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
-                  <div class="preview-thumbnail  ">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-lock text-danger"></i>
+                <div class="cls-hideAnnounce">
+                  <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-lock text-danger"></i>
+                      </div>
                     </div>
-                  </div>
-                  <div class="preview-item-content  ">
-                    <p class="preview-subject mb-1">there is no Announcements yet!</p>
-                  </div>
-                </a>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">there is no Announcements yet!</p>
+                    </div>
+                  </a>
+                </div>
                 <div class="dropdown-divider cls-announce"></div>
                 <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
@@ -445,7 +447,8 @@
                     <div class="form-group">
                       <label for="email-wpalaceholder">E-mail</label>
                       <input type="email" id="email-wpalaceholder" name="email-input" class="form-control rounded-pill "
-                        placeholder="Enter your mail address" required />
+                        placeholder="delegates@gmail.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                        required />
                     </div>
                     <div class="form-group">
                       <label for="address-wpalaceholder">Domicile</label>
@@ -506,7 +509,8 @@
                     <div class="form-group">
                       <div class="form-row mb-3">
                         <label>Submit CV, template download
-                          <a href="">disini</a></label>
+                          <a href="https://docs.google.com/document/d/1rNv3EHmZhTcU_7lM_y8tXwAkv4upvIKg/edit?usp=sharing&ouid=116700729402970307738&rtpof=true&sd=true"
+                            target="_blank">disini</a></label>
                         <input type="file" name="file-cv" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -526,7 +530,8 @@
                       </div>
                       <div class="form-row mb-3">
                         <label>Submit Motlet, Template can download
-                          <a href="">here</a></label>
+                          <a href="https://docs.google.com/document/d/1j1B67Gigh90o-kDRwgkT82HyiIrQZ9rY/edit?usp=sharing&ouid=116700729402970307738&rtpof=true&sd=true"
+                            target="_blank">here</a></label>
                         <input type="file" name="file-motlet" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -547,7 +552,8 @@
                       </div>
                       <div class="form-row mb-3">
                         <label>Submit Study Case Room 1, Template can download
-                          <a href="">here</a></label>
+                          <a href="https://drive.google.com/drive/folders/1nSAETQ7oDhr1J7XC7byQup3kf-nEClvb?usp=sharing"
+                            target="_blank">here</a></label>
                         <input type="file" name="file-study1" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -567,7 +573,8 @@
                       </div>
                       <div class="form-row mb-3">
                         <label>Submit Study Case Room 2, Template can download
-                          <a href="">here</a></label>
+                          <a href="https://drive.google.com/drive/folders/1nSAETQ7oDhr1J7XC7byQup3kf-nEClvb?usp=sharing"
+                            target="_blank">here</a></label>
                         <input type="file" name="file-study2" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -586,8 +593,7 @@
                         </div>
                       </div>
                       <div class="form-row mb-3">
-                        <label>Submit KTM, Template can download
-                          <a href="">here</a></label>
+                        <label>Submit KTM</label>
                         <input type="file" name="file-ktm" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -605,8 +611,7 @@
                         </div>
                       </div>
                       <div class="form-row mb-3">
-                        <label>Submit E-Sertifikat Template can download
-                          <a href="">here</a></label>
+                        <label>Submit E-Sertifikat</label>
                         <input type="file" name="file-srt" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
@@ -747,12 +752,19 @@
             !usrProfile.is_paid)) ? 'none' :
           'block';
       }
-      // let notifAnnounce = document.getElementsByClassName('cls-announce');
-      // for (let i = 0; i < notifAnnounce.length; i++) {
-      //   notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
-      //       .is_rejected && !usrProfile.is_waiting) ? 'none' :
-      //     'block';
-      // }
+      let notifAnnounce = document.getElementsByClassName('cls-announce');
+      let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
+      for (let i = 0; i < notifAnnounce.length; i++) {
+        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
+            usrProfile
+            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+      for (let i = 0; i < hideAnnounce.length; i++) {
+        hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve && usrProfile
+            .is_rejected && usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
       // if(usrProfile.pilihan_room_1){
       //   document.getElementById('form-registration').setAttribute("hidden",true)
       // }

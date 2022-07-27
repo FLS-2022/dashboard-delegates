@@ -258,33 +258,42 @@
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                 data-toggle="dropdown">
                 <i class="mdi mdi-bell"></i>
-                <span class="count bg-danger"></span>
+                <span class="count bg-danger cls-announce"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                 aria-labelledby="notificationDropdown">
                 <h6 class="p-3 mb-0">Notifications</h6>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item" href="../../pages/news/announcement.html">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar text-success"></i>
+                <div class="cls-announce">
+                  <a class="dropdown-item preview-item " href="../../pages/news/announcement.html">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
                     </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject mb-1">
-                      Announcements Delegates
-                    </p>
-                    <p class="text-muted ellipsis mb-0">
-                      Pengumuman seleksi peserta main event FLS 2022
-                    </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">Announcements Delegates</p>
+                      <p class="text-muted ellipsis mb-0"> Pengumuman seleksi peserta main event FLS
+                        2022 </p>
+                    </div>
+                  </a>
+                </div>
 
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-                <p class="p-3 mb-0 text-center">See all notifications</p>
+                <div class="dropdown-divider cls-announce"></div>
+                <div class="cls-hideAnnounce">
+                  <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-lock text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">there is no Announcements yet!</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="dropdown-divider cls-announce"></div>
+                <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -986,10 +995,24 @@
 
       let menuAdmin = document.getElementsByClassName('mn-admin')[0]
       menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
-
+      if (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
+          !usrProfile.is_paid)) window.open(`${window.location.origin}/index.html`, '_self')
       document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
       document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
-
+      let notifAnnounce = document.getElementsByClassName('cls-announce');
+      let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
+      for (let i = 0; i < notifAnnounce.length; i++) {
+        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
+            usrProfile
+            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+      for (let i = 0; i < hideAnnounce.length; i++) {
+        hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve &&
+            usrProfile
+            .is_rejected && usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
     });
 
     function handleDownload() {

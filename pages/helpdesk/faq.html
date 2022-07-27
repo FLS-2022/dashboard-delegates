@@ -250,16 +250,18 @@
                 </div>
 
                 <div class="dropdown-divider cls-announce"></div>
-                <a class="dropdown-item preview-item " role="link" aria-disabled="true">
-                  <div class="preview-thumbnail  ">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-lock text-danger"></i>
+                <div class="cls-hideAnnounce">
+                  <a class="dropdown-item preview-item " role="link" aria-disabled="true">
+                    <div class="preview-thumbnail  ">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-lock text-danger"></i>
+                      </div>
                     </div>
-                  </div>
-                  <div class="preview-item-content  ">
-                    <p class="preview-subject mb-1">there is no Announcements yet!</p>
-                  </div>
-                </a>
+                    <div class="preview-item-content  ">
+                      <p class="preview-subject mb-1">there is no Announcements yet!</p>
+                    </div>
+                  </a>
+                </div>
                 <div class="dropdown-divider cls-announce"></div>
                 <p class="p-3 mb-0 text-center cls-announce"><a href="">See all notifications</a> </p>
               </div>
@@ -484,9 +486,16 @@
           'block';
       }
       let notifAnnounce = document.getElementsByClassName('cls-announce');
+      let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
       for (let i = 0; i < notifAnnounce.length; i++) {
-        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
+        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
+            usrProfile
             .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          'block';
+      }
+      for (let i = 0; i < hideAnnounce.length; i++) {
+        hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve && usrProfile
+            .is_rejected && usrProfile.is_waiting) ? 'none' :
           'block';
       }
     }, 10);
