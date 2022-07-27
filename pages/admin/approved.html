@@ -52,7 +52,7 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                                <h5 class="mb-0 font-weight-normal usr-profile">Ryan Redo</h5>
                                 <span>Delegates</span>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-                <li class="nav-item menu-items">
+                <li class="nav-item menu-items mn-admin">
                     <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false"
                         aria-controls="admin">
                         <span class="menu-icon">
@@ -164,8 +164,6 @@
                     </a>
                     <div class="collapse" id="admin">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="./admin/admin_project01.html"> Admin
-                                    old</a></li>
                             <li class="nav-item"> <a class="nav-link" href="./admin.html"> Data Registrans
                                 </a>
                             </li>
@@ -217,7 +215,7 @@
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
-                            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                            src="../../assets/images/logox_mini.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -335,17 +333,21 @@
                                     <div class="row mb-4">
                                         <div class="col-xl-12 col-lg-12 col-12">
                                             <div class="template-demo">
-                                                <button type="button" class="btn btn-primary btn-sm">Education</button>
-                                                <button type="button"
-                                                    class="btn btn-secondary btn-sm">Economics</button>
-                                                <button type="button" class="btn btn-success btn-sm">Social &
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="handleFilter('Education')">Education</button>
+                                                <button type="button" class="btn btn-secondary btn-sm"
+                                                    onclick="handleFilter('Economics')">Economics</button>
+                                                <button type="button" class="btn btn-success btn-sm"
+                                                    onclick="handleFilter('Social & Humanity')">Social &
                                                     Humanity</button>
-                                                <button type="button" class="btn btn-danger btn-sm">Renewable
-                                                    Energy</button>
-                                                <button type="button" class="btn btn-warning btn-sm">Health
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="handleFilter('Renewable Energy')">Renewable Energy</button>
+                                                <button type="button" class="btn btn-warning btn-sm"
+                                                    onclick="handleFilter('Health Architecture')">Health
                                                     Architecture</button>
-                                                <button type="button" class="btn btn-info btn-sm">Urban and Regional
-                                                    Planning</button>
+                                                <button type="button" class="btn btn-info btn-sm"
+                                                    onclick="handleFilter('Urban and Regional Planning')">Urban and
+                                                    Regional Planning</button>
                                             </div>
                                         </div>
                                     </div>
@@ -357,9 +359,7 @@
                                                     <th class="text-center"> Nama </th>
                                                     <th class="text-center"> Username </th>
                                                     <th class="text-center"> No Telp </th>
-                                                    <th class="text-center"> Alamat </th>
-                                                    <th class="text-center"> Tempat Lahir </th>
-                                                    <th class="text-center"> Tanggal Lahir </th>
+                                                    <th class="text-center"> TTL </th>
                                                     <th class="text-center"> Domisili </th>
                                                     <th class="text-center"> Asal Universitas </th>
                                                     <th class="text-center"> Jurusan </th>
@@ -371,113 +371,42 @@
                                                     <th class="text-center"> Study Case 2</th>
                                                     <th class="text-center"> KTM</th>
                                                     <th class="text-center"> E-Sertifikat</th>
+                                                    <th class="text-center"> File Report</th>
                                                     <th class="text-center aprovee">Report Delegates</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <!-- Modal Upload-->
-                                                <div class="modal fade" id="verticalModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="verticalModalTitle">
-                                                                    Upload Report Delegates</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div id="drag-drop-area"></div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <p>Pastikan document yang diupload sudah benar</p>
-                                                                <button type="button" class="btn mb-2 btn-secondary"
-                                                                    data-dismiss="modal">Cancel</button>
-                                                                <button type="button"
-                                                                    class="btn mb-2 btn-primary">Upload</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <tr>
-                                                    <td>368</td>
-                                                    <td>Imani Lara</td>
-                                                    <td>User01</td>
-                                                    <td>Tech Support</td>
-                                                    <td>022 Suspendisse Rd. 022 Suspendisse Rd.</td>
-                                                    <td>Tech Support</td>
-                                                    <td>Ap #708-5152 Cursus. Ave</td>
-                                                    <td>Tech Support</td>
-                                                    <td>Bath</td>
-                                                    <td>High Wycombe</td>
-                                                    <td>Jun 8, 2019</td>
-                                                    <td>Urban and Regional Planning</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center justify-content-center">
-                                                            <button type="button" class="btn btn-warning btn-icon-text"
-                                                                data-toggle="modal" data-target="#verticalModal"><i
-                                                                    class="mdi mdi-upload btn-icon-prepend"></i> Upload
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>323</td>
-                                                    <td>Walter Sawyer</td>
-                                                    <td>User01</td>
-                                                    <td>Tech Support</td>
-                                                    <td>022 Suspendisse Rd. 022 Suspendisse Rd.</td>
-                                                    <td>Tech Support</td>
-                                                    <td>Ap #708-5152 Cursus. Ave</td>
-                                                    <td>Tech Support</td>
-                                                    <td>Bath</td>
-                                                    <td>High Wycombe</td>
-                                                    <td>Jun 8, 2019</td>
-                                                    <td>Urban and Regional Planning</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center justify-content-center">
-                                                            <button type="button" class="btn btn-warning btn-icon-text"
-                                                                data-toggle="modal" data-target="#verticalModal"><i
-                                                                    class="mdi mdi-upload btn-icon-prepend"></i> Upload
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Modal Upload-->
+                        <div class="modal fade" id="verticalModal" tabindex="-1" role="dialog"
+                            aria-labelledby="verticalModalTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="verticalModalTitle">
+                                            Upload Report Delegates</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="file" name="file-report" class="file-upload-default"
+                                            pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.pdf)$"
+                                            required />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p>Pastikan document yang diupload sudah benar</p>
+                                        <button type="button" class="btn mb-2 btn-secondary"
+                                            data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn mb-2 btn-primary"
+                                            id="btn-report">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -517,15 +446,201 @@
     <script src='../../assets/additional/js/jquery.dataTables.min.js'></script>
     <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
     <script src='../../assets/additional/js/uppy.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
-        $('#dataTable-1').DataTable({
-            autoWidth: true,
-            "lengthMenu": [
-                [16, 32, 64, -1],
-                [16, 32, 64, "All"]
-            ],
+        let dataList = []
 
-        });
+        $(document).ready(async function () {
+            let show = localStorage.getItem('user')
+            if (!show) window.open('./login.html', '_self')
+            let usrProfile = localStorage.getItem('user')
+            usrProfile = JSON.parse(usrProfile)
+            console.log('usrProfile', usrProfile)
+
+            let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+            menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+            if (usrProfile.role_name !== 'ADM') window.open(`${window.location.origin}/index.html`, '_self')
+
+            document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+            document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+            await handleGetDataApprovedList()
+
+            let table = $('#dataTable-1').DataTable({
+                data: dataList.data,
+                columns: [{
+                        data: 'number'
+                    },
+                    {
+                        data: 'nama'
+                    },
+                    {
+                        data: 'username'
+                    },
+                    {
+                        data: 'phone'
+                    },
+                    {
+                        data: 'ttl'
+                    },
+                    {
+                        data: 'domisili'
+                    },
+                    {
+                        data: 'asal_univ'
+                    },
+                    {
+                        data: 'jurusan'
+                    },
+                    {
+                        data: 'angkatan'
+                    },
+                    {
+                        data: 'selection_room'
+                    },
+                    {
+                        data: 'file_cv',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">CV</button>'
+                        }
+                    },
+                    {
+                        data: 'file_motlet',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Motlet</button>'
+                        }
+                    },
+                    {
+                        data: 'file_study_case_1',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 1</button>'
+                        }
+                    },
+                    {
+                        data: 'file_study_case_2',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 2</button>'
+                        }
+                    },
+                    {
+                        data: 'file_ktm',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">KTM</button>'
+                        }
+                    },
+                    {
+                        data: 'file_e_sertifikat',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">E-Sertifikat</button>'
+                        }
+                    },
+                    {
+                        data: 'url_file_report',
+                        render: function (data, type, row) {
+                            if (data == "https://api.futureleadersummit.org/files/") {
+                                return '<button type="button" data-id="' + data +
+                                    '" class="btn btn-primary btn-md" onclick="handleDownload(event)">File Report</button>'
+                            } else {
+                                return '<button type="button" data-id="' + data +
+                                    '" class="btn btn-success btn-md" onclick="handleDownload(event)">File Report</button>'
+                            }
+
+                        }
+                    },
+                    {
+                        data: 'is_approve',
+                        render: function (data, type, row) {
+                            return `<div class="row text-center">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12"
+                                style="margin-right: 18px ;">
+                                <button data-id="${'#verticalModal,' + row.id}" type="button" class="btn btn-warning btn-md butt" onclick="handleModal(event)">Upload</button>
+                            </div>
+                        </div>`
+                        }
+                    },
+                ],
+                autoWidth: true,
+                "lengthMenu": [
+                    [16, 32, 64, -1],
+                    [16, 32, 64, "All"]
+                ],
+
+            });
+            // $('#dataTable-1 tbody').on('click', '#btn-cv', function () {
+            //     var data = table.row($(this).parents('tr'))
+            //     console.log(data)
+            //     // alert(data[0] + "'s salary is: " + data[10]);
+            // });
+        })
+
+        // setTimeout(async () => {
+        // }, 10);
+
+        function handleDownload(e) {
+            window.open(e.target.getAttribute('data-id'))
+        }
+
+        function handleModal(e) {
+            console.log(e.target.getAttribute('data-id'))
+            let data = e.target.getAttribute('data-id')
+            data = data.split(',')
+            if (data[0] == '#verticalModal') {
+                $('#verticalModal').modal('show')
+                $('#btn-report').on('click', async function () {
+                    await handleSaveAction(data[1], 'approve')
+                    $('#verticalModal').modal('hide')
+                })
+            }
+        }
+
+
+        function handleLogout() {
+            localStorage.clear()
+            window.open(`${window.location.origin}/login.html`, '_self')
+        }
+
+        async function handleSaveAction(id, event) {
+            try {
+                var fileReport = document.getElementsByName('file-report')[0]
+                let formData = new FormData()
+                formData.append('id', id)
+                formData.append('file_report', fileReport.files[0])
+                let res = await axios({
+                    url: 'https://api.futureleadersummit.org/action-approve',
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data: formData
+                })
+                window.location.reload()
+                return res.data
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        function handleFilter(e) {
+            let table = $('#dataTable-1').DataTable()
+            table.search(e).draw()
+        }
+
+        async function handleGetDataApprovedList() {
+            try {
+                let res = await axios({
+                    url: 'https://api.futureleadersummit.org/approve-list',
+                    method: 'GET'
+                })
+                dataList = res.data
+            } catch (error) {
+                console.error(error)
+            }
+        }
     </script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');

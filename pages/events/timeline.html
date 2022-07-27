@@ -263,8 +263,6 @@
                     </a>
                     <div class="collapse" id="admin">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html">
-                                    Admin old</a></li>
                             <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data
                                     Registrans
                                 </a>
@@ -322,7 +320,7 @@
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
-                            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                            src="../../assets/images/logox_mini.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -456,7 +454,7 @@
                                                     <p>delegates must fill registration form <a
                                                             href="../forms/delegates_form.html"
                                                             class="text-bg-secondary">here</a></p>
-                                                    <span class="vertical-timeline-element-date">25 July</span>
+                                                    <span class="vertical-timeline-element-date">27 July</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -547,7 +545,7 @@
                                                     <p>Yay, you're finally here, let's continue the journey at the FAW
                                                         event which can be accessed <a href="../events/main-event.html"
                                                             class="text-success">here</a></p>
-                                                    <span class="vertical-timeline-element-date">8-9 October</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -561,7 +559,7 @@
                                                     <p>delegates continue their FAW journey on week 2 and submit the
                                                         assigned
                                                         tasks</p>
-                                                    <span class="vertical-timeline-element-date">15-16 October</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -575,7 +573,7 @@
                                                     <p>delegates continue their FAW journey on week 3 and submit the
                                                         assigned
                                                         tasks</p>
-                                                    <span class="vertical-timeline-element-date">22-23 October</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -590,7 +588,7 @@
                                                             still continues!</i> there
                                                         are still many tasks to be
                                                         completed in week 4, cheers!</p>
-                                                    <span class="vertical-timeline-element-date">29-30 October</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -604,7 +602,7 @@
                                                     <p><i class="text-warning" style="font-weight: 700;">A little bit
                                                             more!</i> complete tasks and go to the last step of FAW
                                                         journey!</p>
-                                                    <span class="vertical-timeline-element-date">5-6 November</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -621,7 +619,7 @@
                                                         have
                                                         reached the final step of the FAW
                                                         event, submit the final task and get your reward!</p>
-                                                    <span class="vertical-timeline-element-date">12-13 November</span>
+                                                    <span class="vertical-timeline-element-date">During October</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -636,7 +634,7 @@
                                                             style="font-weight: 700;text-transform: italic;">
                                                             Congratulations</i> on completing this
                                                         whole great journey. See you at FLS Event 2023!</p>
-                                                    <span class="vertical-timeline-element-date">28-30 November</span>
+                                                    <span class="vertical-timeline-element-date">12-13 November</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -692,9 +690,9 @@
 
             let menuDelegate = document.getElementsByClassName('cls-main-event');
             for (let i = 0; i < menuDelegate.length; i++) {
-                menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ?
-                    'none' :
-                    'block'
+                menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
+                        !usrProfile.is_paid)) ? 'none' :
+                    'block';
             }
             let notifAnnounce = document.getElementsByClassName('cls-announce');
             for (let i = 0; i < notifAnnounce.length; i++) {

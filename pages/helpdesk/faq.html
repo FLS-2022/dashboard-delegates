@@ -147,8 +147,6 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html"> Admin old</a>
-              </li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin.html"> Data Registrans
                 </a>
               </li>
@@ -197,7 +195,7 @@
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg"
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logox_mini.png"
               alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -481,8 +479,9 @@
 
       let menuDelegate = document.getElementsByClassName('cls-main-event');
       for (let i = 0; i < menuDelegate.length; i++) {
-        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ? 'none' :
-          'block'
+        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
+            !usrProfile.is_paid)) ? 'none' :
+          'block';
       }
       let notifAnnounce = document.getElementsByClassName('cls-announce');
       for (let i = 0; i < notifAnnounce.length; i++) {

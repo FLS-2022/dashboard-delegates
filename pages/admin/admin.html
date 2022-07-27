@@ -52,7 +52,7 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Ryan Redo</h5>
+                                <h5 class="mb-0 font-weight-normal usr-profile">Ryan Redo</h5>
                                 <span>Delegates</span>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-                <li class="nav-item menu-items">
+                <li class="nav-item menu-items mn-admin">
                     <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false"
                         aria-controls="admin">
                         <span class="menu-icon">
@@ -164,8 +164,6 @@
                     </a>
                     <div class="collapse" id="admin">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="./admin/admin_project01.html"> Admin
-                                    old</a></li>
                             <li class="nav-item"> <a class="nav-link" href="./admin.html"> Data Registrans
                                 </a>
                             </li>
@@ -217,7 +215,7 @@
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
-                            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                            src="../../assets/images/logox_mini.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -297,7 +295,7 @@
                                         </div>
                                     </div>
                                     <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Log out</p>
+                                        <p class="preview-subject mb-1" onclick="handleLogout()">Log out</p>
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -334,21 +332,132 @@
                                     <div class="row mb-4">
                                         <div class="col-xl-12 col-lg-12 col-12">
                                             <div class="template-demo">
-                                                <button type="button" class="btn btn-primary btn-sm">Education</button>
-                                                <button type="button"
-                                                    class="btn btn-secondary btn-sm">Economics</button>
-                                                <button type="button" class="btn btn-success btn-sm">Social &
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="handleFilter('Education')">Education</button>
+                                                <button type="button" class="btn btn-secondary btn-sm"
+                                                    onclick="handleFilter('Economics')">Economics</button>
+                                                <button type="button" class="btn btn-success btn-sm"
+                                                    onclick="handleFilter('Social & Humanity')">Social &
                                                     Humanity</button>
-                                                <button type="button" class="btn btn-danger btn-sm">Renewable
-                                                    Energy</button>
-                                                <button type="button" class="btn btn-warning btn-sm">Health
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="handleFilter('Renewable Energy')">Renewable Energy</button>
+                                                <button type="button" class="btn btn-warning btn-sm"
+                                                    onclick="handleFilter('Health Architecture')">Health
                                                     Architecture</button>
-                                                <button type="button" class="btn btn-info btn-sm">Urban and Regional
-                                                    Planning</button>
+                                                <button type="button" class="btn btn-info btn-sm"
+                                                    onclick="handleFilter('Urban and Regional Planning')">Urban and
+                                                    Regional Planning</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="table-responsive">
+                                    <!-- Modal Approve-->
+                                    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="verticalModalTitle">
+                                                        Approve Delegates</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h5>Apakah Anda yakin akan me-Apporove delegates
+                                                        ini?</h5>
+                                                    <form class="forms-sample needs-validation" novalidate>
+                                                        <div class="form-group">
+                                                            <label for="exampleSelectGender"
+                                                                style="color: #FFDC4A;">Diloloskan untuk
+                                                                room
+                                                                : </label>
+                                                            <select class="form-control text-success"
+                                                                id="exampleSelectGender" name="room_option"
+                                                                style="border: 1px solid #fff;">
+                                                                <option>Education</option>
+                                                                <option>Economics</option>
+                                                                <option>Social & Humanity</option>
+                                                                <option>Renewable Energy</option>
+                                                                <option>Health Architecture</option>
+                                                                <option>Urban and Regional Planning</option>
+                                                            </select>
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                    <button type="button" class="btn mb-2 btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button id="btn-approve" type="button" onclick="handleSaveAction()"
+                                                        class="btn mb-2 btn-success ">Approve</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Reject-->
+                                    <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="verticalModalTitle">
+                                                        Reject Delegates</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="comment_rejection">Keterangan</label>
+                                                    <textarea class="form-control" name="comment_rejection"
+                                                        id="comment_rejection"
+                                                        style="color: black ; background-color: white ;"></textarea>
+                                                    <h5>Apakah Anda yakin akan Reject delegates
+                                                        ini?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                    <button type="button" class="btn mb-2 btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button id="btn-rejected" type="button"
+                                                        class="btn mb-2 btn-danger">Reject</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Waiting List-->
+                                    <div class="modal fade" id="WLModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="verticalModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="verticalModalTitle">
+                                                        Waiting List Delegates</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h5>Apakah Anda yakin akan memberikan Waiting List untuk
+                                                        delegates
+                                                        ini?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <!-- <p>Pastikan document yang diupload sudah benar</p> -->
+                                                    <button type="button" class="btn mb-2 btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button id="btn-waiting" type="button"
+                                                        class="btn mb-2 btn-info">Waiting
+                                                        List</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive my-table">
                                         <table class="table table-striped datatables" id="dataTable-1">
                                             <thead>
                                                 <tr>
@@ -356,9 +465,7 @@
                                                     <th class="text-center"> Nama </th>
                                                     <th class="text-center"> Username </th>
                                                     <th class="text-center"> No Telp </th>
-                                                    <th class="text-center"> Alamat </th>
-                                                    <th class="text-center"> Tempat Lahir </th>
-                                                    <th class="text-center"> Tanggal Lahir </th>
+                                                    <th class="text-center"> TTL </th>
                                                     <th class="text-center"> Domisili </th>
                                                     <th class="text-center"> Asal Universitas </th>
                                                     <th class="text-center"> Jurusan </th>
@@ -374,316 +481,6 @@
                                                     <th class="text-center aprovee"> Approval</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <!-- Modal Approve-->
-                                                <div class="modal fade" id="approveModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="verticalModalTitle">
-                                                                    Approve Delegates</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>Apakah Anda yakin akan me-Apporove delegates
-                                                                    ini?</h5>
-                                                                <form class="forms-sample needs-validation" novalidate>
-                                                                    <div class="form-group">
-                                                                        <label for="exampleSelectGender"
-                                                                            style="color: #FFDC4A;">Diloloskan untuk
-                                                                            room
-                                                                            : </label>
-                                                                        <select class="form-control text-success"
-                                                                            id="exampleSelectGender"
-                                                                            style="border: 1px solid #fff;">
-                                                                            <option>Education</option>
-                                                                            <option>Economics</option>
-                                                                            <option>Social & Humanity</option>
-                                                                            <option>Renewable Energy</option>
-                                                                            <option>Health Architecture</option>
-                                                                            <option>Urban and Regional Planning</option>
-                                                                        </select>
-                                                                        <div class="valid-feedback"> Looks good! </div>
-                                                                    </div>
-                                                                </form>
-
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
-                                                                <button type="button" class="btn mb-2 btn-secondary"
-                                                                    data-dismiss="modal">Cancel</button>
-                                                                <button type="button"
-                                                                    class="btn mb-2 btn-success">Approve</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Reject-->
-                                                <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="verticalModalTitle">
-                                                                    Reject Delegates</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>Apakah Anda yakin akan meReject delegates
-                                                                    ini?</h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
-                                                                <button type="button" class="btn mb-2 btn-secondary"
-                                                                    data-dismiss="modal">Cancel</button>
-                                                                <button type="button"
-                                                                    class="btn mb-2 btn-danger">Reject</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Waiting List-->
-                                                <div class="modal fade" id="WLModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="verticalModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="verticalModalTitle">
-                                                                    Waiting List Delegates</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>Apakah Anda yakin akan memberikan Waiting List untuk
-                                                                    delegates
-                                                                    ini?</h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <!-- <p>Pastikan document yang diupload sudah benar</p> -->
-                                                                <button type="button" class="btn mb-2 btn-secondary"
-                                                                    data-dismiss="modal">Cancel</button>
-                                                                <button type="button" class="btn mb-2 btn-info">Waiting
-                                                                    List</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <tr>
-                                                    <td>368</td>
-                                                    <td>Imani Lara</td>
-                                                    <td>User01</td>
-                                                    <td>(478) 446-9234</td>
-                                                    <td>(478) 446-9234</td>
-                                                    <td>Asset Management</td>
-                                                    <td>Borland</td>
-                                                    <td>9022 Suspendisse Rd.</td>
-                                                    <td>9022 Suspendisse Rd.</td>
-                                                    <td>High Wycombe</td>
-                                                    <td>Jun 8, 2019</td>
-                                                    <td>Jun 8, 2019</td>
-                                                    <td>Jun 8, 2019</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 18px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#approveModal">Approve</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 4px ;">
-                                                                <button type="button" class="btn btn-danger btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#rejectModal">Reject</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button" class="btn btn-info btn-md"
-                                                                    data-toggle="modal" data-target="#WLModal">Waiting
-                                                                    List</button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>323</td>
-                                                    <td>Walter Sawyer</td>
-                                                    <td>User01</td>
-                                                    <td>(671) 969-1704</td>
-                                                    <td>(671) 969-1704</td>
-                                                    <td>Tech Support</td>
-                                                    <td>Macromedia</td>
-                                                    <td>Ap #708-5152 Cursus. Ave</td>
-                                                    <td>Ap #708-5152 Cursus. Ave</td>
-                                                    <td>Bath</td>
-                                                    <td>May 8, 2020</td>
-                                                    <td>May 8, 2020</td>
-                                                    <td>May 8, 2020</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 18px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#approveModal">Approve</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 4px ;">
-                                                                <button type="button" class="btn btn-danger btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#rejectModal">Reject</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button" class="btn btn-info btn-md"
-                                                                    data-toggle="modal" data-target="#WLModal">Waiting
-                                                                    List</button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-
-                                                </tr>
-                                                <tr>
-                                                    <td>371</td>
-                                                    <td>Noelle Ray</td>
-                                                    <td>User01</td>
-                                                    <td>(803) 792-2559</td>
-                                                    <td>(803) 792-2559</td>
-                                                    <td>Human Resources</td>
-                                                    <td>Sibelius</td>
-                                                    <td>Ap #992-8933 Sagittis Street</td>
-                                                    <td>Ap #992-8933 Sagittis Street</td>
-                                                    <td>Ivanteyevka</td>
-                                                    <td>Apr 2, 2021</td>
-                                                    <td>Apr 2, 2021</td>
-                                                    <td>Apr 2, 2021</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 18px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#approveModal">Approve</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 4px ;">
-                                                                <button type="button" class="btn btn-danger btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#rejectModal">Reject</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button" class="btn btn-info btn-md"
-                                                                    data-toggle="modal" data-target="#WLModal">Waiting
-                                                                    List</button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>302</td>
-                                                    <td>Portia Nolan</td>
-                                                    <td>User01</td>
-                                                    <td>(216) 946-1119</td>
-                                                    <td>(216) 946-1119</td>
-                                                    <td>Payroll</td>
-                                                    <td>Microsoft</td>
-                                                    <td>Ap #461-4415 Enim Rd.</td>
-                                                    <td>Ap #461-4415 Enim Rd.</td>
-                                                    <td>Kanpur Cantonment</td>
-                                                    <td>Dec 4, 2019</td>
-                                                    <td>Dec 4, 2019</td>
-                                                    <td>Dec 4, 2019</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
-                                                    </td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">Motlet</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            1</button></td>
-                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
-                                                            2</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">KTM</button></td>
-                                                    <td> <button type="button"
-                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
-                                                    <td>
-                                                        <div class="row text-center">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 18px ;">
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#approveModal">Approve</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3"
-                                                                style="margin-right: 4px ;">
-                                                                <button type="button" class="btn btn-danger btn-md butt"
-                                                                    data-toggle="modal"
-                                                                    data-target="#rejectModal">Reject</button>
-                                                            </div>
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                                                                <button type="button" class="btn btn-info btn-md"
-                                                                    data-toggle="modal" data-target="#WLModal">Waiting
-                                                                    List</button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -730,14 +527,14 @@
     <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
     <script src='../../assets/additional/js/uppy.min.js'></script>
     <script>
-        $('#dataTable-1').DataTable({
-            autoWidth: true,
-            "lengthMenu": [
-                [16, 32, 64, -1],
-                [16, 32, 64, "All"]
-            ],
+        // $('#dataTable-1').DataTable({
+        //     autoWidth: true,
+        //     "lengthMenu": [
+        //         [16, 32, 64, -1],
+        //         [16, 32, 64, "All"]
+        //     ],
 
-        });
+        // });
     </script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');
@@ -756,6 +553,215 @@
             uppy.on('complete', (result) => {
                 console.log('Upload complete! We’ve uploaded these files:', result.successful)
             });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        let dataList = []
+
+        $(document).ready(async function () {
+            let show = localStorage.getItem('user')
+            if (!show) window.open('./login.html', '_self')
+            let usrProfile = localStorage.getItem('user')
+            usrProfile = JSON.parse(usrProfile)
+            console.log('usrProfile', usrProfile)
+
+            let menuAdmin = document.getElementsByClassName('mn-admin')[0]
+            menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+            if (usrProfile.role_name !== 'ADM') window.open(`${window.location.origin}/index.html`, '_self')
+
+            document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+            document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
+            await handleGetDataList()
+            console.log('test doc', dataList)
+            console.log(dataList)
+
+            let table = $('#dataTable-1').DataTable({
+                data: dataList.data,
+                columns: [{
+                        data: 'number'
+                    },
+                    {
+                        data: 'nama'
+                    },
+                    {
+                        data: 'username'
+                    },
+                    {
+                        data: 'phone'
+                    },
+                    {
+                        data: 'ttl'
+                    },
+                    {
+                        data: 'domisili'
+                    },
+                    {
+                        data: 'asal_univ'
+                    },
+                    {
+                        data: 'jurusan'
+                    },
+                    {
+                        data: 'angkatan'
+                    },
+                    {
+                        data: 'pilihan_room_1'
+                    },
+                    {
+                        data: 'pilihan_room_2'
+                    },
+                    {
+                        data: 'file_cv',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">CV</button>'
+                        }
+                    },
+                    {
+                        data: 'file_motlet',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Motlet</button>'
+                        }
+                    },
+                    {
+                        data: 'file_study_case_1',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 1</button>'
+                        }
+                    },
+                    {
+                        data: 'file_study_case_2',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 2</button>'
+                        }
+                    },
+                    {
+                        data: 'file_ktm',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">KTM</button>'
+                        }
+                    },
+                    {
+                        data: 'file_e_sertifikat',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">E-Sertifikat</button>'
+                        }
+                    },
+                    {
+                        data: 'is_approve',
+                        render: function (data, type, row) {
+                            return `<div class="row text-center">
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-3"
+                                        style="margin-right: 18px ;">
+                                        <button data-id="${'#approveModal,' + row.id}" type="button" class="btn btn-success btn-md butt" onclick="handleModal(event)">Approve</button>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-3"
+                                        style="margin-right: 4px ;">
+                                        <button type="button" data-id="${'#rejectModal,' + row.id}" class="btn btn-danger btn-md butt" onclick="handleModal(event)">Reject</button>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-3">
+                                        <button data-id="${'#WLModal,' + row.id}" type="button" class="btn btn-info btn-md" onclick="handleModal(event)">Waiting List</button>
+                                    </div>
+                                </div>`
+                        }
+                    },
+                ],
+                autoWidth: true,
+                "lengthMenu": [
+                    [16, 32, 64, -1],
+                    [16, 32, 64, "All"]
+                ],
+
+            });
+            // $('#dataTable-1 tbody').on('click', '#btn-cv', function () {
+            //     var data = table.row($(this).parents('tr'))
+            //     console.log(data)
+            //     // alert(data[0] + "'s salary is: " + data[10]);
+            // });
+        })
+
+        // setTimeout(async () => {
+        // }, 10);
+
+        function handleFilter(e) {
+            let table = $('#dataTable-1').DataTable()
+            table.search(e).draw()
+        }
+
+        function handleDownload(e) {
+            window.open(e.target.getAttribute('data-id'))
+        }
+
+        function handleModal(e) {
+            console.log(e.target.getAttribute('data-id'))
+            let data = e.target.getAttribute('data-id')
+            data = data.split(',')
+            if (data[0] == '#approveModal') {
+                $('#approveModal').modal('show')
+                $('#btn-approve').on('click', async function () {
+                    await handleSaveAction(data[1], 'approve')
+                    $('#approveModal').modal('hide')
+                })
+            } else if (data[0] == '#rejectModal') {
+                $('#rejectModal').modal('show')
+                $('#btn-rejected').on('click', async function () {
+                    await handleSaveAction(data[1], 'reject')
+                    $('#rejectModal').modal('hide')
+                })
+            } else if (data[0] == '#WLModal') {
+                $('#WLModal').modal('show')
+                $('#btn-waiting').on('click', async function () {
+                    await handleSaveAction(data[1], 'waiting')
+                    $('#WLModal').modal('hide')
+                })
+            }
+        }
+
+
+        function handleLogout() {
+            localStorage.clear()
+            window.open(`${window.location.origin}/login.html`, '_self')
+        }
+
+        async function handleSaveAction(id, event) {
+            try {
+                var roomSelection = document.getElementsByName('room_option')[0].value
+                var remark = document.getElementsByName('comment_rejection')[0].value
+                let formData = new FormData()
+                formData.append('id', id)
+                formData.append('selection_room', roomSelection)
+                formData.append('remarks', remark)
+                let res = await axios({
+                    url: 'https://api.futureleadersummit.org/action-registration/' + event,
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data: formData
+                })
+                window.location.reload()
+                return res.data
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        async function handleGetDataList() {
+            try {
+                let res = await axios({
+                    url: 'https://api.futureleadersummit.org/data-list',
+                    method: 'GET'
+                })
+                dataList = res.data
+            } catch (error) {
+                console.error(error)
+            }
         }
     </script>
 </body>

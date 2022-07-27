@@ -108,11 +108,13 @@
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <!-- <li class="nav-item"> <a class="nav-link" href="pages/events/main-event.html">Form Registrations</a>
-              </li> -->
-              <li class="nav-item"> <a class="nav-link" href="pages/events/timeline.html">Timeline</a></li>
-              <li class="nav-item cls-main-event"> <a class="nav-link" href="pages/events/rooms.html">Rooms</a></li>
-              <li class="nav-item cls-main-event"> <a class="nav-link" href="pages/events/main-event.html">Delegates
-                  Journey</a></li>
+  </li> -->
+              <li class="nav-item"> <a class="nav-link" href="../../pages/events/timeline.html">Timeline</a>
+              </li>
+              <li class="nav-item cls-main-event"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+              </li>
+              <li class="nav-item cls-main-event"> <a class="nav-link"
+                  href="../../pages/events/main-event.html">Delegates Journey</a></li>
             </ul>
           </div>
         </li>
@@ -150,8 +152,6 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="./pages/admin/admin_project01.html"> Admin old</a>
-              </li>
               <li class="nav-item"> <a class="nav-link" href="./pages/admin/admin.html"> Data Registrans </a></li>
               <!-- <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html"> Validation </a></li> -->
               <li class="nav-item"> <a class="nav-link" href="./pages/admin/wl_validate.html"> Validate WL
@@ -197,7 +197,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logox_mini.png"
               alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -338,7 +338,7 @@
                     previously have made a
                     Contribution of Indonesia's Human Resources Construction through Future Leader Summit education
                     program, and in a few moments you can do the same for Indonesia to surface 2030 era.</p>
-                  <div class="table-responsive"><a href="./pages/events/main-event.html"><button type="button"
+                  <div class="table-responsive"><a href="./pages/forms/delegates_form.html"><button type="button"
                         class="btn btn-primary btn-fw"> Let's
                         Rock</button></a>
                   </div>
@@ -354,11 +354,12 @@
                   <div class="row">
                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
-                        <h3 class="text-success mb-0">-</h3>
+                        <h3 id="statuses" class="text-success mb-0 selection-status">-</h3><i
+                          class="mdi mdi-alert-circle-outline info-rejection"></i>
                       </div>
                       <br>
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
-                        <h6 class=" mb-0">Passed in the room <br> <span class="text-warning">-</span></h6>
+                        <h6 class=" mb-0">Passed in the room <br> <span class="text-warning room-passed">-</span></h6>
                       </div>
                     </div>
                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -375,7 +376,8 @@
                   <div class="row">
                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
-                        <h4 class="mb-0 text-danger">-</h4>
+                        <h4 class="mb-0 text-danger payment-status">-</h4><i
+                        class="mdi mdi-alert-circle-outline payment"></i>
                       </div>
                     </div>
                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -392,7 +394,7 @@
                   <div class="row">
                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
-                        <h4 class="mb-0">-</h4>
+                        <h4 class="mb-0 choice-room1">-</h4>
                       </div>
                     </div>
                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -409,7 +411,7 @@
                   <div class="row">
                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                       <div class="d-flex d-sm-block d-md-flex align-items-center">
-                        <h4 class="mb-0">-</h4>
+                        <h4 class="mb-0 choice-room2">-</h4>
                       </div>
                     </div>
                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -553,14 +555,17 @@
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="assets/js/dashboard.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
   <script>
-    setTimeout(() => {
+    $(document).ready(async function () {
       let show = localStorage.getItem('user')
       if (!show) window.open('./login.html', '_self')
-      let usrProfile = localStorage.getItem('user')
-      usrProfile = JSON.parse(usrProfile)
-      console.log('usrProfile', usrProfile)
-
+      let usrProfiles = localStorage.getItem('user')
+      usrProfiles = JSON.parse(usrProfiles)
+      let resullt = await getUsrProfile(usrProfiles)
+      let usrProfile = resullt
+      console.log('usrProfile',usrProfile)
       let menuAdmin = document.getElementsByClassName('mn-admin')[0]
       menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
 
@@ -569,8 +574,9 @@
       document.getElementsByClassName('title-profile')[0].innerHTML = "Hello, " + usrProfile.username + " !";
       let menuDelegate = document.getElementsByClassName('cls-main-event');
       for (let i = 0; i < menuDelegate.length; i++) {
-        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ? 'none' :
-          'block'
+        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
+            !usrProfile.is_paid)) ? 'none' :
+          'block';
       }
       let notifAnnounce = document.getElementsByClassName('cls-announce');
       for (let i = 0; i < notifAnnounce.length; i++) {
@@ -578,11 +584,69 @@
             .is_rejected && !usrProfile.is_waiting) ? 'none' :
           'block';
       }
-    }, 10);
+      document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
+      document.getElementsByClassName('choice-room1')[0].innerHTML = usrProfile.pilihan_room_1
+      document.getElementsByClassName('choice-room2')[0].innerHTML = usrProfile.pilihan_room_2
+      if (usrProfile.is_approve) {
+        if (usrProfile.is_paid == false && usrProfile.is_process_payment == false && usrProfile.file_payment ==null) {
+          document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+          document.getElementsByClassName('payment-status')[0].innerHTML = 'Menunggu Pembayaran'
+        } else if (usrProfile.is_paid == false && usrProfile.is_process_payment == true) {
+          $('.payment-status').removeClass('text-danger')
+          $('.payment-status').addClass('text-warning')
+          document.getElementsByClassName('payment-status')[0].innerHTML = 'Menunggu Validasi'
+          document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+        } else if(usrProfile.is_process_payment==false && usrProfile.file_payment != null){
+          console.log('pymnt rmk', usrProfiles.payment_remarks)
+          document.getElementsByClassName('payment-status')[0].innerHTML = 'Reject'
+          document.getElementsByClassName('payment')[0].setAttribute("title", usrProfile.payment_remarks);
+          let displayIconPayment = document.getElementsByClassName('payment')[0]
+          displayIconPayment.style.margin = '0 0 0 5px'
+        } else {
+          $('.payment-status').removeClass('text-danger')
+          $('.payment-status').addClass('text-success')
+          document.getElementsByClassName('payment-status')[0].innerHTML = 'Lunas'
+          document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+        } 
+        document.getElementsByClassName('selection-status')[0].innerHTML = 'Approve'
+        document.getElementsByClassName('room-passed')[0].innerHTML = usrProfile.selection_room
+        document.getElementsByClassName('info-rejection')[0].setAttribute("hidden", true);
+      } else if (usrProfile.is_rejected) {
+        $('#statuses').removeClass('text-success')
+        $('#statuses').addClass('text-danger')
+        document.getElementsByClassName('selection-status')[0].innerHTML = 'Reject'
+        document.getElementsByClassName('info-rejection')[0].setAttribute("title", usrProfile.remarks);
+        document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+      } else if (usrProfile.is_waiting) {
+        $('#statuses').removeClass('text-success')
+        $('#statuses').addClass('text-warning')
+        document.getElementsByClassName('selection-status')[0].innerHTML = 'Waiting List'
+        document.getElementsByClassName('info-rejection')[0].setAttribute("hidden", true);
+        document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+      } else {
+        document.getElementsByClassName('info-rejection')[0].setAttribute("hidden", true);
+        document.getElementsByClassName('payment')[0].setAttribute("hidden", true);
+      }
+    })
 
     function handleLogout() {
       localStorage.clear()
       window.open(`./login.html`, '_self')
+    }
+    async function getUsrProfile(usrProfile) {
+      try {
+        let res = await axios({
+          url: 'https://api.futureleadersummit.org/user-profile',
+          method: 'POST',
+          data: {
+            user_id: usrProfile.id
+          }
+        })
+        localStorage.setItem('user', JSON.stringify(res.data))
+        return res.data
+      } catch (error) {
+
+      }
     }
   </script>
   <!-- End custom js for this page -->

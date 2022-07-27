@@ -172,8 +172,6 @@
           </a>
           <div class="collapse" id="admin">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/admin/admin_project01.html"> Admin old</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="../../pages/admin/admin.html">
                   Data Registrans
@@ -238,7 +236,7 @@
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg"
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logox_mini.png"
               alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -354,8 +352,8 @@
           </div>
 
           <div class="row">
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
+            <div class="col-12 grid-margin stretch-card close-form">
+              <div id="form-registration" class="card">
                 <div class="card-body">
                   <h4 class="card-title">Form Registrasi Delegates</h4>
                   <p class="card-description">
@@ -394,10 +392,10 @@
                           </div>
                           <div class="modal-footer">
                             <!-- <p>Pastikan document yang diupload sudah benar</p> -->
-                            <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">
+                            <button type="button" id="cancelModal" class="btn mb-2 btn-secondary" data-dismiss="modal">
                               Cancel
                             </button>
-                            <button type="button" onclick="handleSubmitForm()" class="btn mb-2 btn-success">
+                            <button type="button" onclick="validateForm()" class="btn mb-2 btn-success">
                               Submit
                             </button>
                           </div>
@@ -407,7 +405,7 @@
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
                       <input type="text" class="form-control rounded-pill " name="nama-input" id="exampleInputName1"
-                        placeholder="Nama" pattern="^[a-zA-Z\s\.\-]*$" minlength="4" maxlength="50" required />
+                        placeholder="Nama" pattern="^[a-zA-Z\s\.\-\0-9]*$" minlength="4" maxlength="50" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">Usernama not valid.</div>
                     </div>
@@ -445,9 +443,14 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label for="email-wpalaceholder">E-mail</label>
+                      <input type="email" id="email-wpalaceholder" name="email-input" class="form-control rounded-pill "
+                        placeholder="Enter your mail address" required />
+                    </div>
+                    <div class="form-group">
                       <label for="address-wpalaceholder">Domicile</label>
                       <input type="text" id="address-wpalaceholder" name="dm-input" class="form-control rounded-pill "
-                        placeholder="Enter your address" pattern="^[a-zA-Z\s\.\-]*$" minlength="4" required />
+                        placeholder="Enter your address" pattern="^[a-zA-Z\s\.\-\0-9]*$" minlength="4" required />
                       <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">Badd address</div>
                     </div>
@@ -648,7 +651,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row congrats" style="display: none">
             <div class="col-lg-12 col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body text-center">
@@ -717,7 +720,7 @@
     <script src='js/uppy.min.js'></script> -->
 
   <script>
-    setTimeout(() => {
+    $(document).ready(async function () {
       let show = localStorage.getItem('user')
       if (!show) window.open('./login.html', '_self')
       let usrProfile = localStorage.getItem('user')
@@ -730,18 +733,31 @@
       document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
       document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
 
+      if (usrProfile.pilihan_room_1) {
+        let displayAnnouncements = document.getElementsByClassName('congrats')[0]
+        displayAnnouncements.style.display = 'block'
+
+        let displayAnnouncements1 = document.getElementsByClassName('close-form')[0]
+        displayAnnouncements1.style.display = 'none'
+      }
+
       let menuDelegate = document.getElementsByClassName('cls-main-event');
       for (let i = 0; i < menuDelegate.length; i++) {
-        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve) ? 'none' :
-          'block'
-      }
-      let notifAnnounce = document.getElementsByClassName('cls-announce');
-      for (let i = 0; i < notifAnnounce.length; i++) {
-        notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
-            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+        menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
+            !usrProfile.is_paid)) ? 'none' :
           'block';
       }
-    }, 10);
+      // let notifAnnounce = document.getElementsByClassName('cls-announce');
+      // for (let i = 0; i < notifAnnounce.length; i++) {
+      //   notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
+      //       .is_rejected && !usrProfile.is_waiting) ? 'none' :
+      //     'block';
+      // }
+      // if(usrProfile.pilihan_room_1){
+      //   document.getElementById('form-registration').setAttribute("hidden",true)
+      // }
+      // $("#submitModal").modal('hide');
+    })
 
     $(".select2").select2({
       theme: "bootstrap4",
@@ -930,9 +946,15 @@
 
     async function handleSubmitForm() {
       try {
+        // var is_check = document.getElementById('invalidCheck')[0].value
+        // if(is_check == ""){
+        //   let msg = document.getElementsByClassName('msg-danger')[0]
+        //   msg.innerHTML = 'is cek not checked'
+        // }
         var nama = document.getElementsByName('nama-input')[0]
         var phone = document.getElementsByName('phone-input')[0]
         var ttl1 = document.getElementsByName('ttl-input1')[0]
+        var email = document.getElementsByName('email-input')[0]
         var ttl2 = document.getElementsByName('ttl-input2')[0]
         var domisili = document.getElementsByName('dm-input')[0]
         var univ = document.getElementsByName('unv-input')[0]
@@ -957,6 +979,7 @@
         formData.append('phone', phone.value)
         formData.append('ttl', (ttl1.value + ' ' + ttl2.value))
         formData.append('domisili', domisili.value)
+        formData.append('email', email.value)
         formData.append('asal_univ', univ.value)
         formData.append('jurusan', jurusan.value)
         formData.append('angkatan', batch.value)
@@ -985,6 +1008,13 @@
         msg.innerHTML = res.data.message
         alert.style.display = 'block'
 
+        setTimeout(() => {
+          $('#cancelModal').click();
+        }, 1000)
+        await getUsrProfile(usrProfile)
+
+        window.location.reload()
+
       } catch (error) {
         console.log(error)
         let alert = document.getElementsByClassName('alert-danger')[0]
@@ -993,6 +1023,24 @@
         msg.innerHTML = 'Data gagal disimpan!'
         alert.style.display = 'block'
       }
+    }
+
+    async function getUsrProfile(usrProfile) {
+      try {
+        console.log('usrprfl', usrProfile)
+        let res = await axios({
+          url: 'https://api.futureleadersummit.org/user-profile',
+          method: 'POST',
+          data: {
+            user_id: usrProfile.id
+          }
+        })
+        console.log('reload usrProfile', res.data)
+        localStorage.setItem('user', JSON.stringify(res.data))
+      } catch (error) {
+
+      }
+
     }
 
     function handleLogout() {
