@@ -448,8 +448,9 @@
     <script src='../../assets/additional/js/uppy.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
+        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let dataList = []
-
+        
         $(document).ready(async function () {
             let show = localStorage.getItem('user')
             if (!show) window.open('./login.html', '_self')
@@ -542,7 +543,7 @@
                     {
                         data: 'url_file_report',
                         render: function (data, type, row) {
-                            if (data == "https://api.futureleadersummit.org/files/") {
+                            if (data == "http://127.0.0.1:3304/files/") {
                                 return '<button type="button" data-id="' + data +
                                     '" class="btn btn-primary btn-md" onclick="handleDownload(event)">File Report</button>'
                             } else {
@@ -611,7 +612,7 @@
                 formData.append('id', id)
                 formData.append('file_report', fileReport.files[0])
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-approve',
+                    url: 'http://127.0.0.1:3304/action-approve',
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -633,12 +634,28 @@
         async function handleGetDataApprovedList() {
             try {
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/approve-list',
+                    url: 'http://127.0.0.1:3304/approve-list',
                     method: 'GET'
                 })
                 dataList = res.data
             } catch (error) {
                 console.error(error)
+            }
+        }
+
+        async function getUsrProfile(usrProfile) {
+            try {
+                let res = await axios({
+                url: 'http://127.0.0.1:3304/user-profile',
+                method: 'POST',
+                data: {
+                    user_id: usrProfile.id
+                }
+                })
+                localStorage.setItem('user', JSON.stringify(res.data))
+                return res.data
+            } catch (error) {
+                window.open(`${window.location.origin}/index.html`, '_self')
             }
         }
     </script>

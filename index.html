@@ -645,8 +645,12 @@
     async function getUsrProfile(usrProfile) {
       try {
         let res = await axios({
-          url: 'https://api.futureleadersummit.org/user-profile',
+          url: 'http://127.0.0.1:3304/user-profile',
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'token': usrProfile.token
+          },
           data: {
             user_id: usrProfile.id
           }
@@ -654,7 +658,7 @@
         localStorage.setItem('user', JSON.stringify(res.data))
         return res.data
       } catch (error) {
-
+        window.open(`./login.html`, '_self')
       }
     }
   </script>

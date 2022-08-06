@@ -677,11 +677,12 @@
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
     <script>
-        setTimeout(() => {
+        setTimeout(async() => {
             let show = localStorage.getItem('user')
             if (!show) window.open('./login.html', '_self')
             let usrProfile = localStorage.getItem('user')
             usrProfile = JSON.parse(usrProfile)
+            await getUsrProfile(usrProfile)
             console.log('usrProfile', usrProfile)
 
             let menuAdmin = document.getElementsByClassName('mn-admin')[0]
@@ -715,6 +716,22 @@
         function handleLogout() {
             localStorage.clear()
             window.open(`${window.location.origin}/login.html`, '_self')
+        }
+
+        async function getUsrProfile(usrProfile) {
+            try {
+                let res = await axios({
+                url: 'http://127.0.0.1:3304/user-profile',
+                method: 'POST',
+                data: {
+                    user_id: usrProfile.id
+                }
+                })
+                localStorage.setItem('user', JSON.stringify(res.data))
+                return res.data
+            } catch (error) {
+
+            }
         }
     </script>
     <!-- endinject -->

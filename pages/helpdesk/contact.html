@@ -553,7 +553,7 @@
                 let message = document.getElementsByClassName('msg-input')[0]
 
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/send-email',
+                    url: 'http://127.0.0.1:3304/send-email',
                     method: 'POST',
                     data: {
                         username: username.value,

@@ -557,6 +557,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
+        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let dataList = []
 
         $(document).ready(async function () {
@@ -568,7 +569,6 @@
 
             let menuAdmin = document.getElementsByClassName('mn-admin')[0]
             menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
-            if (usrProfile.role_name !== 'ADM') window.open(`${window.location.origin}/index.html`, '_self')
 
             document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
             document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
@@ -738,7 +738,7 @@
                 formData.append('selection_room', roomSelection)
                 formData.append('remarks', remark)
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-registration/' + event,
+                    url: 'http://127.0.0.1:3304/action-registration/' + event,
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -755,7 +755,7 @@
         async function handleGetDataList() {
             try {
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/data-list',
+                    url: 'http://127.0.0.1:3304/data-list',
                     method: 'GET'
                 })
                 dataList = res.data
@@ -763,6 +763,22 @@
                 console.error(error)
             }
         }
+
+    async function getUsrProfile(usrProfile) {
+      try {
+        let res = await axios({
+          url: 'http://127.0.0.1:3304/user-profile',
+          method: 'POST',
+          data: {
+            user_id: usrProfile.id
+          }
+        })
+        localStorage.setItem('user', JSON.stringify(res.data))
+        return res.data
+      } catch (error) {
+        window.open(`${window.location.origin}/index.html`, '_self')
+      }
+    }
     </script>
 </body>
 
