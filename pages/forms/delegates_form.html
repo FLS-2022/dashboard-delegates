@@ -983,6 +983,18 @@
         var fileSrt = document.getElementsByName('file-srt')[0]
 
         let usrProfile = localStorage.getItem('user')
+
+        const sizeFile = (fsize) => Math.round((fsize / 1024));
+        const cvsize = sizeFile(fileCv.files[0].size);
+        const motletsize = sizeFile(fileMotlet.files[0].size);
+        const study1size = sizeFile(fileStudy1.files[0].size);
+        const study2size = sizeFile(fileStudy2.files[0].size);
+        const ktmSize = sizeFile(fileKtm.files[0].size);
+        const srtSize = sizeFile(fileSrt.files[0].size);
+
+        const bigSize = cvSize > 512 || motletsize > 512 || study1size > 512 || study2size > 512 || ktmSize > 512 || srtSize > 512;
+        if (bigSize) throw new Error("bigSizeFile")
+        
         usrProfile = JSON.parse(usrProfile)
 
         let formData = new FormData()
@@ -1028,12 +1040,19 @@
         window.location.reload()
 
       } catch (error) {
-        console.log(error)
-        let alert = document.getElementsByClassName('alert-danger')[0]
-        console.log(alert)
-        let msg = document.getElementsByClassName('msg-danger')[0]
-        msg.innerHTML = 'Data gagal disimpan!'
-        alert.style.display = 'block'
+        if(error.message == "bigSizeFile"){
+          let alert = document.getElementsByClassName('alert-danger')[0]
+          let msg = document.getElementsByClassName('msg-danger')[0]
+          msg.innerHTML = 'File terlalu besar, pastikan anda mengirim file dengan ukuran maksimal 512kb'
+          alert.style.display = 'block'
+        }else{
+          console.log(error)
+          let alert = document.getElementsByClassName('alert-danger')[0]
+          console.log(alert)
+          let msg = document.getElementsByClassName('msg-danger')[0]
+          msg.innerHTML = 'Data gagal disimpan!'
+          alert.style.display = 'block'
+        }
       }
     }
 

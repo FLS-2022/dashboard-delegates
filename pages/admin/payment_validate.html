@@ -466,6 +466,7 @@
     <script src='../../assets/additional/js/uppy.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
+        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let paymentList = []
         $(document).ready(async function () {
             await handleGetDataList()
@@ -596,6 +597,22 @@
         function handleLogout() {
             localStorage.clear()
             window.open(`${window.location.origin}/login.html`, '_self')
+        }
+
+        async function getUsrProfile(usrProfile) {
+            try {
+                let res = await axios({
+                url: 'https://api.futureleadersummit.org/user-profile',
+                method: 'POST',
+                data: {
+                    user_id: usrProfile.id
+                }
+                })
+                localStorage.setItem('user', JSON.stringify(res.data))
+                return res.data
+            } catch (error) {
+                window.open(`${window.location.origin}/index.html`, '_self')
+            }
         }
     </script>
     <script>
