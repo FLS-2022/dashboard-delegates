@@ -543,7 +543,7 @@
                     {
                         data: 'url_file_report',
                         render: function (data, type, row) {
-                            if (data == "https://api.futureleadersummit.org/files/") {
+                            if (data == "http://127.0.0.1:3304/files/") {
                                 return '<button type="button" data-id="' + data +
                                     '" class="btn btn-primary btn-md" onclick="handleDownload(event)">File Report</button>'
                             } else {
@@ -612,7 +612,7 @@
                 formData.append('id', id)
                 formData.append('file_report', fileReport.files[0])
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-approve',
+                    url: 'http://127.0.0.1:3304/action-approve',
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -634,7 +634,7 @@
         async function handleGetDataApprovedList() {
             try {
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/approve-list',
+                    url: 'http://127.0.0.1:3304/approve-list',
                     method: 'GET'
                 })
                 dataList = res.data
@@ -646,7 +646,7 @@
         async function getUsrProfile(usrProfile) {
             try {
                 let res = await axios({
-                url: 'https://api.futureleadersummit.org/user-profile',
+                url: 'http://127.0.0.1:3304/user-profile',
                 method: 'POST',
                 data: {
                     user_id: usrProfile.id

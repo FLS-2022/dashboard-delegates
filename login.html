@@ -159,7 +159,7 @@
         let username = document.getElementsByClassName('usr-input')[0].value
         let password = document.getElementsByClassName('pass-input')[0].value
         let res = await axios({
-          url: 'https://api.futureleadersummit.org/login',
+          url: 'http://127.0.0.1:3304/login',
           method: 'POST',
           data: {
             username: username,
@@ -186,7 +186,7 @@
     async function getUsrProfile(usrProfile) {
       try {
         let res = await axios({
-          url: 'https://api.futureleadersummit.org/user-profile',
+          url: 'http://127.0.0.1:3304/user-profile',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

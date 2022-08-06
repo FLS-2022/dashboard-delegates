@@ -791,7 +791,7 @@
         try {
           console.log('usrprfl', usrProfile)
           let res = await axios({
-            url: 'https://api.futureleadersummit.org/user-profile',
+            url: 'http://127.0.0.1:3304/user-profile',
             method: 'POST',
             data: {
               user_id: usrProfile.id
@@ -816,7 +816,7 @@
             formData.append('type_payment', paymentMethod.value)
             formData.append('file_payment', buktiPembayaran.files[0])
             let res = await axios({
-              url: 'https://api.futureleadersummit.org/proof-of-payment',
+              url: 'http://127.0.0.1:3304/proof-of-payment',
               method: 'POST',
               headers: {
                 'Content-Type': 'multipart/form-data'

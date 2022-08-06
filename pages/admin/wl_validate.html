@@ -646,7 +646,7 @@
                 formData.append('selection_room', roomSelection)
                 formData.append('remarks', remark)
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-waiting',
+                    url: 'http://127.0.0.1:3304/action-waiting',
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -670,7 +670,7 @@
         async function handleGetDataValidateWL() {
             try {
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/waiting-list',
+                    url: 'http://127.0.0.1:3304/waiting-list',
                     method: 'GET'
                 })
                 dataList = res.data
@@ -687,7 +687,7 @@
         async function getUsrProfile(usrProfile) {
             try {
                 let res = await axios({
-                url: 'https://api.futureleadersummit.org/user-profile',
+                url: 'http://127.0.0.1:3304/user-profile',
                 method: 'POST',
                 data: {
                     user_id: usrProfile.id

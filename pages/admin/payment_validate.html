@@ -564,7 +564,7 @@
                 console.log(event)
                 var remark = document.getElementsByName('comment_rejection')[0].value
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-payment',
+                    url: 'http://127.0.0.1:3304/action-payment',
                     method: 'POST',
                     data: {
                         id: id,
@@ -584,7 +584,7 @@
         async function handleGetDataList() {
             try {
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/payment-list',
+                    url: 'http://127.0.0.1:3304/payment-list',
                     method: 'GET'
                 })
                 paymentList = res.data
@@ -602,7 +602,7 @@
         async function getUsrProfile(usrProfile) {
             try {
                 let res = await axios({
-                url: 'https://api.futureleadersummit.org/user-profile',
+                url: 'http://127.0.0.1:3304/user-profile',
                 method: 'POST',
                 data: {
                     user_id: usrProfile.id
