@@ -188,7 +188,7 @@
         let email = document.getElementsByClassName('email-input')[0].value
         let password = document.getElementsByClassName('pass-input')[0].value
         let res = await axios({
-          url: 'http://127.0.0.1:3304/registration',
+          url: 'https://api.futureleadersummit.org/registration',
           method: 'POST',
           data: {
             username: username,

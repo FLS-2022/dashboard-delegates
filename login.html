@@ -151,15 +151,12 @@
   <script src="./assets/js/todolist.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   <script>
-    if(JSON.parse(localStorage.getItem('user'))){
-      window.open('./index.html', '_self')
-    }
     async function handleLogin() {
       try {
         let username = document.getElementsByClassName('usr-input')[0].value
         let password = document.getElementsByClassName('pass-input')[0].value
         let res = await axios({
-          url: 'http://127.0.0.1:3304/login',
+          url: 'https://api.futureleadersummit.org/login',
           method: 'POST',
           data: {
             username: username,
@@ -180,26 +177,6 @@
         x.type = "text";
       } else {
         x.type = "password";
-      }
-    }
-
-    async function getUsrProfile(usrProfile) {
-      try {
-        let res = await axios({
-          url: 'http://127.0.0.1:3304/user-profile',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'token': usrProfile.token
-          },
-          data: {
-            user_id: usrProfile.id
-          }
-        })
-        localStorage.setItem('user', JSON.stringify(res.data))
-        return res.data
-      } catch (error) {
-        window.open(`./login.html`, '_self')
       }
     }
   </script>

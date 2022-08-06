@@ -738,7 +738,7 @@
                 formData.append('id', id)
                 formData.append('file_report', fileReport.files[0])
                 let res = await axios({
-                    url: 'http://127.0.0.1:3304/action-registration/' + event,
+                    url: 'https://api.futureleadersummit.org/action-registration/' + event,
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -755,7 +755,7 @@
         async function handleGetDataList() {
             try {
                 let res = await axios({
-                    url: 'http://127.0.0.1:3304/data-list',
+                    url: 'https://api.futureleadersummit.org/data-list',
                     method: 'GET'
                 })
                 dataList = res.data
@@ -767,7 +767,7 @@
         async function getUsrProfile(usrProfile) {
             try {
                 let res = await axios({
-                url: 'http://127.0.0.1:3304/user-profile',
+                url: 'https://api.futureleadersummit.org/user-profile',
                 method: 'POST',
                 data: {
                     user_id: usrProfile.id

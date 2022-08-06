@@ -1031,7 +1031,7 @@
     async function getUsrProfile(usrProfile) {
       try {
         let res = await axios({
-          url: 'http://127.0.0.1:3304/user-profile',
+          url: 'https://api.futureleadersummit.org/user-profile',
           method: 'POST',
           data: {
             user_id: usrProfile.id

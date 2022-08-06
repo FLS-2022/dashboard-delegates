@@ -1017,7 +1017,7 @@
         formData.append('e_sertifikat', fileSrt.files[0])
 
         let res = await axios({
-          url: 'http://127.0.0.1:3304/data-registration',
+          url: 'https://api.futureleadersummit.org/data-registration',
           method: 'POST',
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -1060,7 +1060,7 @@
       try {
         console.log('usrprfl', usrProfile)
         let res = await axios({
-          url: 'http://127.0.0.1:3304/user-profile',
+          url: 'https://api.futureleadersummit.org/user-profile',
           method: 'POST',
           data: {
             user_id: usrProfile.id
