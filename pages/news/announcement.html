@@ -113,11 +113,11 @@
                   </li> -->
               <li class="nav-item"> <a class="nav-link" href="../../pages/events/timeline.html">Timeline</a>
               </li>
-              <!-- <li class="nav-item cls-main-event"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
+              <li class="nav-item cls-main-event"> <a class="nav-link" href="../../pages/events/rooms.html">Rooms</a>
               </li>
               <li class="nav-item cls-main-event"> <a class="nav-link"
                   href="../../pages/events/main-event.html">Delegates Journey</a>
-              </li> -->
+              </li>
             </ul>
           </div>
         </li>
@@ -145,7 +145,7 @@
             <span class="menu-title">Delegates Journey</span>
           </a>
         </li> -->
-        <!-- <li class="nav-item menu-items mn-admin">
+        <li class="nav-item menu-items mn-admin">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="admin">
             <span class="menu-icon">
               <i class="mdi mdi-account-key"></i>
@@ -168,11 +168,11 @@
               <li class="nav-item"> <a class="nav-link" href="../../pages/admin/approved.html"> Data Approved
                 </a>
               </li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
-                  </li>
+              <!-- <li class="nav-item"> <a class="nav-link" href="../../pages/icons/mdi.html"> Validation </a>
+                  </li> -->
             </ul>
           </div>
-        </li> -->
+        </li>
         <li class="nav-item menu-items">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <span class="menu-icon">
@@ -192,7 +192,7 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+          <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
             target="_blank">
             <span class="menu-icon">
               <i class="mdi mdi-file-document-box"></i>
@@ -563,15 +563,16 @@
     <script src='../../assets/additional/js/jquery.validate.min.js'></script>
     <script src='../../assets/additional/js/jquery.timepicker.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
 
     <!-- 
     <script src='js/uppy.min.js'></script> -->
 
     <script>
       $(document).ready(async function () {
-        let show = localStorage.getItem('user')
+        let show = ls.get('user', { decrypt: true })
         if (!show) window.open('./login.html', '_self')
-        let usrProfiles = localStorage.getItem('user')
+        let usrProfiles = ls.get('user', { decrypt: true })
         usrProfiles = JSON.parse(usrProfiles)
         let resullt = await getUsrProfile(usrProfiles)
         let usrProfile = resullt
@@ -584,20 +585,20 @@
         let menuDelegate = document.getElementsByClassName('cls-main-event');
         for (let i = 0; i < menuDelegate.length; i++) {
           menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
-              !usrProfile.is_paid)) ? 'none' :
+            !usrProfile.is_paid)) ? 'none' :
             'block';
         }
         let notifAnnounce = document.getElementsByClassName('cls-announce');
         let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
         for (let i = 0; i < notifAnnounce.length; i++) {
           notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
-              usrProfile
+            usrProfile
               .is_rejected && !usrProfile.is_waiting) ? 'none' :
             'block';
         }
         for (let i = 0; i < hideAnnounce.length; i++) {
           hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve && usrProfile
-              .is_rejected && usrProfile.is_waiting) ? 'none' :
+            .is_rejected && usrProfile.is_waiting) ? 'none' :
             'block';
         }
         if (usrProfile.is_approve) {
@@ -705,42 +706,42 @@
           ['bold', 'italic', 'underline', 'strike'],
           ['blockquote', 'code-block'],
           [{
-              'header': 1
-            },
-            {
-              'header': 2
-            }
+            'header': 1
+          },
+          {
+            'header': 2
+          }
           ],
           [{
-              'list': 'ordered'
-            },
-            {
-              'list': 'bullet'
-            }
+            'list': 'ordered'
+          },
+          {
+            'list': 'bullet'
+          }
           ],
           [{
-              'script': 'sub'
-            },
-            {
-              'script': 'super'
-            }
+            'script': 'sub'
+          },
+          {
+            'script': 'super'
+          }
           ],
           [{
-              'indent': '-1'
-            },
-            {
-              'indent': '+1'
-            }
+            'indent': '-1'
+          },
+          {
+            'indent': '+1'
+          }
           ], // outdent/indent
           [{
             'direction': 'rtl'
           }], // text direction
           [{
-              'color': []
-            },
-            {
-              'background': []
-            }
+            'color': []
+          },
+          {
+            'background': []
+          }
           ], // dropdown with defaults from theme
           [{
             'align': []
@@ -797,7 +798,7 @@
               user_id: usrProfile.id
             }
           })
-          localStorage.setItem('user', JSON.stringify(res.data))
+          ls.set('user', JSON.stringify(res.data), { encrypt: true })
           return res.data
         } catch (error) {
 
@@ -805,7 +806,7 @@
       }
       async function handleSubmitAnnouncement() {
         try {
-          let usrProfile = localStorage.getItem('user')
+          let usrProfile = ls.get('user', { decrypt: true })
           usrProfile = JSON.parse(usrProfile)
           if (usrProfile.is_process_payment == false && usrProfile.is_paid == false) {
             var paymentMethod = document.getElementsByName('payment-selection')[0]

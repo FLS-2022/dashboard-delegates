@@ -182,7 +182,7 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+          <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
             target="_blank">
             <span class="menu-icon">
               <i class="mdi mdi-file-document-box"></i>
@@ -558,12 +558,13 @@
   <!-- Custom js for this page -->
   <script src="assets/js/dashboard.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
 
   <script>
     $(document).ready(async function () {
-      let show = localStorage.getItem('user')
+      let show = ls.get('user', { decrypt: true })
       if (!show) window.open('./login.html', '_self')
-      let usrProfiles = localStorage.getItem('user')
+      let usrProfiles = ls.get('user', { decrypt: true })
       usrProfiles = JSON.parse(usrProfiles)
       let resullt = await getUsrProfile(usrProfiles)
       let usrProfile = resullt
@@ -577,19 +578,19 @@
       let menuDelegate = document.getElementsByClassName('cls-main-event');
       for (let i = 0; i < menuDelegate.length; i++) {
         menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
-            !usrProfile.is_paid)) ? 'none' :
+          !usrProfile.is_paid)) ? 'none' :
           'block';
       }
       let notifAnnounce = document.getElementsByClassName('cls-announce');
       let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
       for (let i = 0; i < notifAnnounce.length; i++) {
         notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !usrProfile
-            .is_rejected && !usrProfile.is_waiting) ? 'none' :
+          .is_rejected && !usrProfile.is_waiting) ? 'none' :
           'block';
       }
       for (let i = 0; i < hideAnnounce.length; i++) {
         hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve && usrProfile
-            .is_rejected && usrProfile.is_waiting) ? 'none' :
+          .is_rejected && usrProfile.is_waiting) ? 'none' :
           'block';
       }
       document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
@@ -647,18 +648,14 @@
         let res = await axios({
           url: 'https://api.futureleadersummit.org/user-profile',
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'token': usrProfile.token
-          },
           data: {
             user_id: usrProfile.id
           }
         })
-        localStorage.setItem('user', JSON.stringify(res.data))
+        ls.set('user', JSON.stringify(res.data), { encrypt: true })
         return res.data
       } catch (error) {
-        window.open(`./login.html`, '_self')
+
       }
     }
   </script>

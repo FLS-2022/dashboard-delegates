@@ -192,7 +192,7 @@
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                    <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
                         target="_blank">
                         <span class="menu-icon">
                             <i class="mdi mdi-file-document-box"></i>
@@ -503,11 +503,12 @@
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
     <script>
         setTimeout(() => {
-            let show = localStorage.getItem('user')
+            let show = ls.get('user', { decrypt: true })
             if (!show) window.open('./login.html', '_self')
-            let usrProfile = localStorage.getItem('user')
+            let usrProfile = ls.get('user', { decrypt: true })
             usrProfile = JSON.parse(usrProfile)
 
             let menuAdmin = document.getElementsByClassName('mn-admin')[0]
@@ -519,20 +520,20 @@
             let menuDelegate = document.getElementsByClassName('cls-main-event');
             for (let i = 0; i < menuDelegate.length; i++) {
                 menuDelegate[i].style.display = (usrProfile.role_name === 'USR' && (!usrProfile.is_approve ||
-                        !usrProfile.is_paid)) ? 'none' :
+                    !usrProfile.is_paid)) ? 'none' :
                     'block';
             }
             let notifAnnounce = document.getElementsByClassName('cls-announce');
             let hideAnnounce = document.getElementsByClassName('cls-hideAnnounce');
             for (let i = 0; i < notifAnnounce.length; i++) {
                 notifAnnounce[i].style.display = (usrProfile.role_name === 'USR' && !usrProfile.is_approve && !
-                        usrProfile
+                    usrProfile
                         .is_rejected && !usrProfile.is_waiting) ? 'none' :
                     'block';
             }
             for (let i = 0; i < hideAnnounce.length; i++) {
                 hideAnnounce[i].style.display = (usrProfile.role_name === 'USR' && usrProfile.is_approve &&
-                        usrProfile
+                    usrProfile
                         .is_rejected && usrProfile.is_waiting) ? 'none' :
                     'block';
             }

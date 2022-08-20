@@ -221,7 +221,7 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+          <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
             target="_blank">
             <span class="menu-icon">
               <i class="mdi mdi-file-document-box"></i>
@@ -474,6 +474,14 @@
                       <div class="invalid-feedback">Not a correct major.</div>
                     </div>
                     <div class="form-group">
+                      <label for="exampleInputName1">Linkedin Link</label>
+                      <input type="text" class="form-control rounded-pill " name="Linkedin-Input" id="simpleinput"
+                        placeholder="https://www.linkedin.com/flsummit"
+                        pattern="^https:\/\/[a-z]{2,3}\.linkedin\.com\/.*$" required />
+                      <div class="valid-feedback">Looks good!</div>
+                      <div class="invalid-feedback">Not a correct Linkedin Link.</div>
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputName1">Batch</label>
                       <input type="text" class="form-control rounded-pill " name="bth-input" id="simpleinput"
                         placeholder="ex : 2019" pattern="^\d+$" minlength="4" maxlength="4" required />
@@ -508,13 +516,34 @@
                     </div>
                     <div class="form-group">
                       <div class="form-row mb-3">
-                        <label>Submit CV, template download
+                        <label>Submit Foto Twibbon, template can download
+                          <a href="https://bit.ly/twibbondelegates2022" target="_blank">here</a>
+                        </label>
+                        <input type="file" name="file-foto" class="file-upload-default" required />
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control rounded-pill  file-upload-info"
+                            placeholder="Upload Foto (*JPG|JPEG|PNG) - 10MB Max Size"
+                            pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.jpg|.jpeg|.png)$"
+                            required />
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary rounded-pill ms-2" type="button">
+                              Upload
+                            </button>
+                          </span>
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">
+                            Fill with correct type (*JPG|JPEG|PNG)
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label>Submit CV, template can download
                           <a href="https://docs.google.com/document/d/1rNv3EHmZhTcU_7lM_y8tXwAkv4upvIKg/edit?usp=sharing&ouid=116700729402970307738&rtpof=true&sd=true"
-                            target="_blank">disini</a></label>
+                            target="_blank">here</a></label>
                         <input type="file" name="file-cv" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload CV (*PDF)"
+                            placeholder="Upload CV (*PDF) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.pdf)$" required />
 
                           <span class="input-group-append">
@@ -535,7 +564,7 @@
                         <input type="file" name="file-motlet" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload Motlet (*Docx)"
+                            placeholder="Upload Motlet (*Docx) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.doc|.docx)$"
                             required />
 
@@ -557,7 +586,7 @@
                         <input type="file" name="file-study1" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload Case 1 (*Docx)"
+                            placeholder="Upload Case 1 (*Docx) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.doc|.docx)$"
                             required />
                           <span class="input-group-append">
@@ -578,7 +607,7 @@
                         <input type="file" name="file-study2" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload Case 2 (*Docx)"
+                            placeholder="Upload Case 2 (*Docx) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.doc|.docx)$"
                             required />
                           <span class="input-group-append">
@@ -597,7 +626,7 @@
                         <input type="file" name="file-ktm" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload KTM (*PDF)"
+                            placeholder="Upload KTM (*PDF) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.pdf)$" required />
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary rounded-pill ms-2" type="button">
@@ -615,7 +644,7 @@
                         <input type="file" name="file-srt" class="file-upload-default" required />
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control rounded-pill  file-upload-info"
-                            placeholder="Upload E-Sertifikat (*PDF)"
+                            placeholder="Upload E-Sertifikat (*PDF) - 10MB Max Size"
                             pattern="([a-zA-Z0-9!@#$%^&*()`~_+\-=\[\]{};':\\|,.<>\/?\s_\\.\-:])+(.pdf)$" required />
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary rounded-pill ms-2" type="button">
@@ -721,14 +750,19 @@
   <script src="../../assets/additional/js/jquery.validate.min.js"></script>
   <script src="../../assets/additional/js/jquery.timepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
   <!-- 
     <script src='js/uppy.min.js'></script> -->
 
   <script>
     $(document).ready(async function () {
-      let show = localStorage.getItem('user')
+      let show = ls.get('user', {
+        decrypt: true
+      })
       if (!show) window.open('./login.html', '_self')
-      let usrProfile = localStorage.getItem('user')
+      let usrProfile = ls.get('user', {
+        decrypt: true
+      })
       usrProfile = JSON.parse(usrProfile)
       console.log('usrProfile', usrProfile)
 
@@ -963,6 +997,7 @@
         //   let msg = document.getElementsByClassName('msg-danger')[0]
         //   msg.innerHTML = 'is cek not checked'
         // }
+        console.log('test handle submit call')
         var nama = document.getElementsByName('nama-input')[0]
         var phone = document.getElementsByName('phone-input')[0]
         var ttl1 = document.getElementsByName('ttl-input1')[0]
@@ -974,7 +1009,8 @@
         var batch = document.getElementsByName('bth-input')[0]
         var room1 = document.getElementsByName('rm1-input')[0]
         var room2 = document.getElementsByName('rm2-input')[0]
-
+        var linked = document.getElementsByName('Linkedin-Input')[0]
+        var filefoto = document.getElementsByName('file-foto')[0]
         var fileCv = document.getElementsByName('file-cv')[0]
         var fileMotlet = document.getElementsByName('file-motlet')[0]
         var fileStudy1 = document.getElementsByName('file-study1')[0]
@@ -982,19 +1018,9 @@
         var fileKtm = document.getElementsByName('file-ktm')[0]
         var fileSrt = document.getElementsByName('file-srt')[0]
 
-        let usrProfile = localStorage.getItem('user')
-
-        const sizeFile = (fsize) => Math.round((fsize / 1024));
-        const cvsize = sizeFile(fileCv.files[0].size);
-        const motletsize = sizeFile(fileMotlet.files[0].size);
-        const study1size = sizeFile(fileStudy1.files[0].size);
-        const study2size = sizeFile(fileStudy2.files[0].size);
-        const ktmSize = sizeFile(fileKtm.files[0].size);
-        const srtSize = sizeFile(fileSrt.files[0].size);
-
-        const bigSize = cvSize > 512 || motletsize > 512 || study1size > 512 || study2size > 512 || ktmSize > 512 || srtSize > 512;
-        if (bigSize) throw new Error("bigSizeFile")
-        
+        let usrProfile = ls.get('user', {
+          decrypt: true
+        })
         usrProfile = JSON.parse(usrProfile)
 
         let formData = new FormData()
@@ -1009,6 +1035,9 @@
         formData.append('angkatan', batch.value)
         formData.append('pilihan_room_1', room1.value)
         formData.append('pilihan_room_2', room2.value)
+        formData.append('linked', linked.value)
+
+        formData.append('file_foto', filefoto.files[0])
         formData.append('cv', fileCv.files[0])
         formData.append('motlet', fileMotlet.files[0])
         formData.append('study_case_1', fileStudy1.files[0])
@@ -1040,19 +1069,12 @@
         window.location.reload()
 
       } catch (error) {
-        if(error.message == "bigSizeFile"){
-          let alert = document.getElementsByClassName('alert-danger')[0]
-          let msg = document.getElementsByClassName('msg-danger')[0]
-          msg.innerHTML = 'File terlalu besar, pastikan anda mengirim file dengan ukuran maksimal 512kb'
-          alert.style.display = 'block'
-        }else{
-          console.log(error)
-          let alert = document.getElementsByClassName('alert-danger')[0]
-          console.log(alert)
-          let msg = document.getElementsByClassName('msg-danger')[0]
-          msg.innerHTML = 'Data gagal disimpan!'
-          alert.style.display = 'block'
-        }
+        console.log(error)
+        let alert = document.getElementsByClassName('alert-danger')[0]
+        console.log(alert)
+        let msg = document.getElementsByClassName('msg-danger')[0]
+        msg.innerHTML = 'Data gagal disimpan!'
+        alert.style.display = 'block'
       }
     }
 
@@ -1067,7 +1089,9 @@
           }
         })
         console.log('reload usrProfile', res.data)
-        localStorage.setItem('user', JSON.stringify(res.data))
+        ls.set('user', JSON.stringify(res.data), {
+          encrypt: true
+        })
       } catch (error) {
 
       }

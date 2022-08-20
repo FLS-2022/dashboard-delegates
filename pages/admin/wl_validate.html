@@ -199,7 +199,7 @@
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                    <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
                         target="_blank">
                         <span class="menu-icon">
                             <i class="mdi mdi-file-document-box"></i>
@@ -492,17 +492,16 @@
     <script src='../../assets/additional/js/jquery.dataTables.min.js'></script>
     <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
     <script src='../../assets/additional/js/uppy.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script><script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
 
     <script>
-        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let dataList = []
 
         $(document).ready(async function () {
             await handleGetDataValidateWL()
-            let show = localStorage.getItem('user')
+            let show = ls.get('user', { decrypt: true })
             if (!show) window.open('./login.html', '_self')
-            let usrProfile = localStorage.getItem('user')
+            let usrProfile = ls.get('user', { decrypt: true })
             usrProfile = JSON.parse(usrProfile)
             console.log('usrProfile', usrProfile)
 
@@ -682,22 +681,6 @@
         function handleLogout() {
             localStorage.clear()
             window.open(`${window.location.origin}/login.html`, '_self')
-        }
-
-        async function getUsrProfile(usrProfile) {
-            try {
-                let res = await axios({
-                url: 'https://api.futureleadersummit.org/user-profile',
-                method: 'POST',
-                data: {
-                    user_id: usrProfile.id
-                }
-                })
-                localStorage.setItem('user', JSON.stringify(res.data))
-                return res.data
-            } catch (error) {
-                window.open(`${window.location.origin}/index.html`, '_self')
-            }
         }
     </script>
     <script>

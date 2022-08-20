@@ -199,7 +199,7 @@
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                    <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
                         target="_blank">
                         <span class="menu-icon">
                             <i class="mdi mdi-file-document-box"></i>
@@ -472,6 +472,8 @@
                                                     <th class="text-center"> Angkatan</th>
                                                     <th class="text-center"> Room 1</th>
                                                     <th class="text-center"> Room 2</th>
+                                                    <th class="text-center"> Linked In</th>
+                                                    <th class="text-center"> Foto</th>
                                                     <th class="text-center"> CV</th>
                                                     <th class="text-center"> Motlet</th>
                                                     <th class="text-center"> Study Case 1</th>
@@ -556,25 +558,24 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
     <script>
-        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let dataList = []
 
         $(document).ready(async function () {
-            let show = localStorage.getItem('user')
+            let show = ls.get('user', { decrypt: true })
             if (!show) window.open('./login.html', '_self')
-            let usrProfile = localStorage.getItem('user')
+            let usrProfile = ls.get('user', { decrypt: true })
             usrProfile = JSON.parse(usrProfile)
             console.log('usrProfile', usrProfile)
 
             let menuAdmin = document.getElementsByClassName('mn-admin')[0]
             menuAdmin.style.display = usrProfile.role_name !== 'ADM' ? 'none' : 'block'
+            if (usrProfile.role_name !== 'ADM') window.open(`${window.location.origin}/index.html`, '_self')
 
             document.getElementsByClassName('usr-profile')[0].innerHTML = usrProfile.username
             document.getElementsByClassName('navbar-profile-name')[0].innerHTML = usrProfile.username
             await handleGetDataList()
-            console.log('test doc', dataList)
-            console.log(dataList)
 
             let table = $('#dataTable-1').DataTable({
                 data: dataList.data,
@@ -610,6 +611,16 @@
                     },
                     {
                         data: 'pilihan_room_2'
+                    },
+                    {
+                        data: 'linked'
+                    },
+                    {
+                        data: 'file_foto',
+                        render: function (data, type, row) {
+                            return '<button type="button" data-id="' + data +
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Foto</button>'
+                        }
                     },
                     {
                         data: 'file_cv',
@@ -738,14 +749,14 @@
                 formData.append('selection_room', roomSelection)
                 formData.append('remarks', remark)
                 let res = await axios({
-                    url: 'https://api.futureleadersummit.org/action-registration/' + event,
+                    url: 'https://api.futureleadersummit.org/action-registration/'+ event,
                     method: 'POST',
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     },
                     data: formData
                 })
-                window.location.reload()
+                // window.location.reload()
                 return res.data
             } catch (error) {
                 console.error(error)
@@ -763,22 +774,6 @@
                 console.error(error)
             }
         }
-
-    async function getUsrProfile(usrProfile) {
-      try {
-        let res = await axios({
-          url: 'https://api.futureleadersummit.org/user-profile',
-          method: 'POST',
-          data: {
-            user_id: usrProfile.id
-          }
-        })
-        localStorage.setItem('user', JSON.stringify(res.data))
-        return res.data
-      } catch (error) {
-        window.open(`${window.location.origin}/index.html`, '_self')
-      }
-    }
     </script>
 </body>
 

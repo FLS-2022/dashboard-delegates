@@ -150,6 +150,7 @@
   <script src="./assets/js/settings.js"></script>
   <script src="./assets/js/todolist.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
   <script>
     async function handleLogin() {
       try {
@@ -163,7 +164,10 @@
             password: password
           }
         })
-        localStorage.setItem('user', JSON.stringify(res.data))
+        ls.set('user', JSON.stringify(res.data), {
+          encrypt: true
+        })
+        // localStorage.setItem('user', JSON.stringify(res.data),{encrypt:true})
         console.log('uert', res.data)
         window.open('./index.html', '_self')
       } catch (error) {

@@ -199,7 +199,7 @@
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="https://drive.google.com/file/d/1ZfxJ30VSCdGw44HPpAbCB57hPedHkJH_/view"
+                    <a class="nav-link" href="https://drive.google.com/file/d/1HwHglfLubTTvNhqz-Ixuk_LTtiqmW0eG/view"
                         target="_blank">
                         <span class="menu-icon">
                             <i class="mdi mdi-file-document-box"></i>
@@ -365,6 +365,8 @@
                                                     <th class="text-center"> Jurusan </th>
                                                     <th class="text-center"> Angkatan</th>
                                                     <th class="text-center"> Room Terpilih</th>
+                                                    <th class="text-center"> Linked In</th>
+                                                    <th class="text-center"> Foto</th>
                                                     <th class="text-center"> CV</th>
                                                     <th class="text-center"> Motlet</th>
                                                     <th class="text-center"> Study Case 1</th>
@@ -447,14 +449,14 @@
     <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
     <script src='../../assets/additional/js/uppy.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
     <script>
-        getUsrProfile(JSON.parse(localStorage.getItem('user')));
         let dataList = []
-        
+
         $(document).ready(async function () {
-            let show = localStorage.getItem('user')
+            let show = ls.get('user', { decrypt: true })
             if (!show) window.open('./login.html', '_self')
-            let usrProfile = localStorage.getItem('user')
+            let usrProfile = ls.get('user', { decrypt: true })
             usrProfile = JSON.parse(usrProfile)
             console.log('usrProfile', usrProfile)
 
@@ -469,101 +471,111 @@
             let table = $('#dataTable-1').DataTable({
                 data: dataList.data,
                 columns: [{
-                        data: 'number'
-                    },
-                    {
-                        data: 'nama'
-                    },
-                    {
-                        data: 'username'
-                    },
-                    {
-                        data: 'phone'
-                    },
-                    {
-                        data: 'ttl'
-                    },
-                    {
-                        data: 'domisili'
-                    },
-                    {
-                        data: 'asal_univ'
-                    },
-                    {
-                        data: 'jurusan'
-                    },
-                    {
-                        data: 'angkatan'
-                    },
-                    {
-                        data: 'selection_room'
-                    },
-                    {
-                        data: 'file_cv',
-                        render: function (data, type, row) {
+                    data: 'number'
+                },
+                {
+                    data: 'nama'
+                },
+                {
+                    data: 'username'
+                },
+                {
+                    data: 'phone'
+                },
+                {
+                    data: 'ttl'
+                },
+                {
+                    data: 'domisili'
+                },
+                {
+                    data: 'asal_univ'
+                },
+                {
+                    data: 'jurusan'
+                },
+                {
+                    data: 'angkatan'
+                },
+                {
+                    data: 'selection_room'
+                },
+                {
+                    data: 'linked'
+                },
+                {
+                    data: 'file_foto',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Foto</button>'
+                    }
+                },
+                {
+                    data: 'file_cv',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">CV</button>'
+                    }
+                },
+                {
+                    data: 'file_motlet',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Motlet</button>'
+                    }
+                },
+                {
+                    data: 'file_study_case_1',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 1</button>'
+                    }
+                },
+                {
+                    data: 'file_study_case_2',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 2</button>'
+                    }
+                },
+                {
+                    data: 'file_ktm',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">KTM</button>'
+                    }
+                },
+                {
+                    data: 'file_e_sertifikat',
+                    render: function (data, type, row) {
+                        return '<button type="button" data-id="' + data +
+                            '" class="btn btn-primary btn-md" onclick="handleDownload(event)">E-Sertifikat</button>'
+                    }
+                },
+                {
+                    data: 'url_file_report',
+                    render: function (data, type, row) {
+                        if (data == "https://api.futureleadersummit.org/files/") {
                             return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">CV</button>'
-                        }
-                    },
-                    {
-                        data: 'file_motlet',
-                        render: function (data, type, row) {
+                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">File Report</button>'
+                        } else {
                             return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Motlet</button>'
+                                '" class="btn btn-success btn-md" onclick="handleDownload(event)">File Report</button>'
                         }
-                    },
-                    {
-                        data: 'file_study_case_1',
-                        render: function (data, type, row) {
-                            return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 1</button>'
-                        }
-                    },
-                    {
-                        data: 'file_study_case_2',
-                        render: function (data, type, row) {
-                            return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">Study Case 2</button>'
-                        }
-                    },
-                    {
-                        data: 'file_ktm',
-                        render: function (data, type, row) {
-                            return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">KTM</button>'
-                        }
-                    },
-                    {
-                        data: 'file_e_sertifikat',
-                        render: function (data, type, row) {
-                            return '<button type="button" data-id="' + data +
-                                '" class="btn btn-primary btn-md" onclick="handleDownload(event)">E-Sertifikat</button>'
-                        }
-                    },
-                    {
-                        data: 'url_file_report',
-                        render: function (data, type, row) {
-                            if (data == "https://api.futureleadersummit.org/files/") {
-                                return '<button type="button" data-id="' + data +
-                                    '" class="btn btn-primary btn-md" onclick="handleDownload(event)">File Report</button>'
-                            } else {
-                                return '<button type="button" data-id="' + data +
-                                    '" class="btn btn-success btn-md" onclick="handleDownload(event)">File Report</button>'
-                            }
 
-                        }
-                    },
-                    {
-                        data: 'is_approve',
-                        render: function (data, type, row) {
-                            return `<div class="row text-center">
+                    }
+                },
+                {
+                    data: 'is_approve',
+                    render: function (data, type, row) {
+                        return `<div class="row text-center">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-12"
                                 style="margin-right: 18px ;">
                                 <button data-id="${'#verticalModal,' + row.id}" type="button" class="btn btn-warning btn-md butt" onclick="handleModal(event)">Upload</button>
                             </div>
                         </div>`
-                        }
-                    },
+                    }
+                },
                 ],
                 autoWidth: true,
                 "lengthMenu": [
@@ -638,24 +650,9 @@
                     method: 'GET'
                 })
                 dataList = res.data
+                console.log('list data approved',res.data)
             } catch (error) {
                 console.error(error)
-            }
-        }
-
-        async function getUsrProfile(usrProfile) {
-            try {
-                let res = await axios({
-                url: 'https://api.futureleadersummit.org/user-profile',
-                method: 'POST',
-                data: {
-                    user_id: usrProfile.id
-                }
-                })
-                localStorage.setItem('user', JSON.stringify(res.data))
-                return res.data
-            } catch (error) {
-                window.open(`${window.location.origin}/index.html`, '_self')
             }
         }
     </script>

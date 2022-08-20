@@ -167,12 +167,13 @@
   <script src="./assets/js/settings.js"></script>
   <script src="./assets/js/todolist.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script>
   <script>
     async function validateForm(params) {
       let isValid = true
       console.log('isValid ', isValid)
       var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
+      // Loop over them and prevent submission 
       var validation = await Array.prototype.filter.call(forms, async function (form) {
         console.log('validation ', form.checkValidity())
         if (!form.checkValidity()) {
@@ -279,7 +280,7 @@
               case 1:
                 strength = "Way too Weak";
                 progressbar = 15;
-                bClass = "bg-danger";
+                bClass = "bg-danger ";
                 break;
               case 2:
                 strength = "Very Weak";
